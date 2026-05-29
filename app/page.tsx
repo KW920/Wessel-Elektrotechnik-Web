@@ -154,10 +154,16 @@ export default function Page() {
               src={project.image}
               alt={project.title}
               onClick={() => {
-                document.getElementById("lightbox-image").src = project.image;
-                document.getElementById("lightbox-title").innerText = project.title;
-                document.getElementById("lightbox").classList.remove("hidden");
-              }}
+  const image = document.getElementById("lightbox-image");
+  const title = document.getElementById("lightbox-title");
+  const lightbox = document.getElementById("lightbox");
+
+  if (image && title && lightbox) {
+    image.src = project.image;
+    title.innerText = project.title;
+    lightbox.classList.remove("hidden");
+  }
+}}
               className="h-48 w-full object-cover cursor-pointer transition duration-500 group-hover:scale-110"
             />
           </div>
