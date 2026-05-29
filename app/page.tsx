@@ -207,8 +207,12 @@ export default function Page() {
     <button
       className="absolute -top-4 right-0 text-white text-5xl"
       onClick={() => {
-        document.getElementById("lightbox").classList.add("hidden");
-      }}
+  const lightbox = document.getElementById("lightbox");
+
+  if (lightbox) {
+    lightbox.classList.add("hidden");
+  }
+}}
     >
       ×
     </button>
