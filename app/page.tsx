@@ -154,9 +154,17 @@ export default function Page() {
               src={project.image}
               alt={project.title}
               onClick={() => {
-  const image = document.getElementById("lightbox-image");
-  const title = document.getElementById("lightbox-title");
-  const lightbox = document.getElementById("lightbox");
+  const image = document.getElementById(
+    "lightbox-image"
+  ) as HTMLImageElement | null;
+
+  const title = document.getElementById(
+    "lightbox-title"
+  ) as HTMLElement | null;
+
+  const lightbox = document.getElementById(
+    "lightbox"
+  ) as HTMLElement | null;
 
   if (image && title && lightbox) {
     image.src = project.image;
