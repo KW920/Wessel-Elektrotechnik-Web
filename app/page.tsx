@@ -1,6 +1,15 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Page() {
+  const [name, setName] = useState("");
+  const [telefon, setTelefon] = useState("");
+  const [nachricht, setNachricht] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   return (
     <div className="text-white font-sans bg-transparent">
 
@@ -233,22 +242,86 @@ export default function Page() {
 
 </div>
       {/* KONTAKT */}
-      <section id="kontakt" className="py-24 px-6">
-        <div className="max-w-xl mx-auto">
+<section id="kontakt" className="py-24 px-6">
+  <div className="max-w-xl mx-auto">
 
-          <h2 className="text-3xl mb-6 text-center">Kontakt</h2>
+    <h2 className="text-3xl mb-6 text-center">
+      Kontakt
+    </h2>
 
-          <form className="grid gap-4">
-            <input placeholder="Name" className="p-4 bg-[#0b1220] rounded" />
-            <input placeholder="Telefon" className="p-4 bg-[#0b1220] rounded" />
-            <textarea placeholder="Nachricht" className="p-4 bg-[#0b1220] rounded h-32" />
-            <button className="bg-blue-600 py-3 rounded">
-              Anfrage senden
-            </button>
-          </form>
+    <form
+      className="grid gap-4"
+      onSubmit={async (e) => {
+        e.preventDefault();
 
-        </div>
-      </section>
+        setLoading(true);
+
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            telefon,
+            nachricht,
+          }),
+        });
+
+        setLoading(false);
+
+        if (response.ok) {
+          setSuccess(true);
+
+          setName("");
+          setTelefon("");
+          setNachricht("");
+        }
+      }}
+    >
+
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Name"
+        required
+        className="p-4 bg-[#0b1220] rounded"
+      />
+
+      <input
+        value={telefon}
+        onChange={(e) => setTelefon(e.target.value)}
+        placeholder="Telefon"
+        required
+        className="p-4 bg-[#0b1220] rounded"
+      />
+
+      <textarea
+        value={nachricht}
+        onChange={(e) => setNachricht(e.target.value)}
+        placeholder="Nachricht"
+        required
+        className="p-4 bg-[#0b1220] rounded h-32"
+      />
+
+      <button
+        type="submit"
+        disabled={loading}
+        className="bg-blue-600 py-3 rounded hover:bg-blue-500 transition"
+      >
+        {loading ? "Wird gesendet..." : "Anfrage senden"}
+      </button>
+
+      {success && (
+        <p className="text-green-500 text-center">
+          Vielen Dank! Ihre Anfrage wurde erfolgreich versendet.
+        </p>
+      )}
+
+    </form>
+
+  </div>
+</section>
 
       {/* FOOTER */}
       <footer className="py-10 border-t border-white/10">
