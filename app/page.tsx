@@ -29,7 +29,12 @@ export default function Page() {
             <a href="#projekte">Projekte</a>
             <a href="#kontakt">Kontakt</a>
           </nav>
-
+            <a
+              href="tel:+492571123456"
+              className="hidden lg:block text-sm text-gray-300"
+              >
+             📞 02571 / 123456
+            </a>
           <a href="#kontakt" className="bg-blue-600 px-6 py-2 rounded-md text-sm">
             Projekt anfragen
           </a>
