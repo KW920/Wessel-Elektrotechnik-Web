@@ -167,7 +167,7 @@ export default function Page() {
   ) as HTMLElement | null;
 
   if (image && title && lightbox) {
-    image.src = project.image;
+    (image as HTMLImageElement).src = project.image;
     title.innerText = project.title;
     lightbox.classList.remove("hidden");
   }
