@@ -20,7 +20,9 @@ export async function POST(req: Request) {
         <p>${nachricht}</p>
       `,
     });
+console.log("RESEND RESPONSE:", data);
 
+return Response.json(data);
     return Response.json(data);
   } catch (error) {
     return Response.json(
