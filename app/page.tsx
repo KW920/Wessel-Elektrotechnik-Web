@@ -195,8 +195,12 @@ export default function Page() {
   id="lightbox"
   className="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-6"
   onClick={() => {
-    document.getElementById("lightbox").classList.add("hidden");
-  }}
+  const lightbox = document.getElementById("lightbox");
+
+  if (lightbox) {
+    lightbox.classList.add("hidden");
+  }
+}}
 >
 
   <div className="relative max-w-6xl w-full flex flex-col items-center">
