@@ -6,7 +6,8 @@ export default function Page() {
   const [name, setName] = useState("");
   const [telefon, setTelefon] = useState("");
   const [nachricht, setNachricht] = useState("");
-
+  const [email, setEmail] = useState("");
+  
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -264,6 +265,7 @@ export default function Page() {
           body: JSON.stringify({
             name,
             telefon,
+            email,
             nachricht,
           }),
         });
@@ -281,20 +283,29 @@ export default function Page() {
     >
 
       <input
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Name"
-        required
-        className="p-4 bg-[#0b1220] rounded"
-      />
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+  placeholder="Name"
+  required
+  className="p-4 bg-[#0b1220] rounded"
+/>
 
-      <input
-        value={telefon}
-        onChange={(e) => setTelefon(e.target.value)}
-        placeholder="Telefon"
-        required
-        className="p-4 bg-[#0b1220] rounded"
-      />
+<input
+  value={telefon}
+  onChange={(e) => setTelefon(e.target.value)}
+  placeholder="Telefon"
+  required
+  className="p-4 bg-[#0b1220] rounded"
+/>
+
+<input
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  type="email"
+  placeholder="E-Mail"
+  required
+  className="p-4 bg-[#0b1220] rounded"
+/>
 
       <textarea
         value={nachricht}
