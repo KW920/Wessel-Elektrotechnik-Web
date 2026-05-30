@@ -8,7 +8,7 @@ export async function POST(req: Request) {
 
     const data = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "info@wessel-elektrotechnik.de",
+      to: "wessel-wolfgang@t-online.de",
       subject: "Neue Kontaktanfrage",
       html: `
         <h2>Neue Kontaktanfrage</h2>
