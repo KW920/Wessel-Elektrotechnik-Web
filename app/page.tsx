@@ -314,6 +314,7 @@ export default function Page() {
 
           setName("");
           setTelefon("");
+          setEmail("");
           setNachricht("");
         }
       }}
