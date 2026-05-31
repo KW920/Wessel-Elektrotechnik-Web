@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     const { name, telefon, mail, nachricht } = await req.json();
 
     const data = await resend.emails.send({
-      from: "Wessel Elektrotechnik <kontakt@send.wessel-elektrotechnik.de>",
+      from: "Wessel Elektrotechnik <kontakt@wessel-elektrotechnik.de>",
       to: "info@wessel-elektrotechnik.de",
       replyTo: mail,
       subject: "Neue Kontaktanfrage",
