@@ -201,27 +201,27 @@ export default function Page() {
 
       {[
         {
-          image: "/project1.jpg",
+          image: "/Projektbild.png",
           title: "Neubau Einfamilienhaus"
         },
         {
-          image: "/project2.jpg",
+          image: "/Projektbild.png",
           title: "Smart Home Installation"
         },
         {
-          image: "/project3.jpg",
+          image: "/Projektbild.png",
           title: "Photovoltaik Anlage"
         },
         {
-          image: "/project4.jpg",
+          image: "/Projektbild.png",
           title: "Industrieverkabelung"
         },
         {
-          image: "/project5.jpg",
+          image: "/Projektbild.png",
           title: "Wallbox Installation"
         },
         {
-          image: "/project6.jpg",
+          image: "/Projektbild.png",
           title: "Modernes Beleuchtungskonzept"
         },
       ].map((project, i) => (
