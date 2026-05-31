@@ -87,7 +87,7 @@ export default function Page() {
             </div>
           </div>
 
-          
+         <img src="/hero.jpg" className="rounded-2xl" /> 
         </div>
       </section>
 
