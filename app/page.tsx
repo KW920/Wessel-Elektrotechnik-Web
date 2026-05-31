@@ -1,6 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import {
+  Zap,
+  House,
+  Wrench,
+  Sun,
+  Car,
+  ShieldCheck,
+} from "lucide-react";
 
 export default function Page() {
   const [name, setName] = useState("");
@@ -96,30 +104,68 @@ export default function Page() {
       </section>
 
       {/* LEISTUNGEN */}
-      <section id="leistungen" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
+<section id="leistungen" className="py-24 px-6">
+  <div className="max-w-7xl mx-auto">
 
-          <h2 className="text-3xl mb-12">Unsere Leistungen</h2>
+    <h2 className="text-3xl mb-12">Unsere Leistungen</h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
+    <div className="grid md:grid-cols-3 gap-6">
 
-            {[
-              "Elektroinstallation - ob Alt- oder Neubau, wir sind der richtige Ansprechpartner",
-              "Smart Home",
-              "Kundendienst",
-              "Photovoltaik",
-              "E-Mobilität",
-              "E-Check"
-            ].map((item, i) => (
-              <div key={i} className="p-6 bg-[#0b1220] rounded-xl border border-white/10">
-                <img src="/wessel_icon_dark-Photoroom.png" className="w-20	mb-4" />
-                <h3>{item}</h3>
-              </div>
-            ))}
+      {[
+        {
+          title: "Elektroinstallation",
+          text: "Ob Alt- oder Neubau, wir sind der richtige Ansprechpartner.",
+          icon: Zap,
+        },
+        {
+          title: "Smart Home",
+          text: "Moderne und intelligente Gebäudesteuerung.",
+          icon: House,
+        },
+        {
+          title: "Kundendienst",
+          text: "Schnelle Hilfe bei Störungen und Reparaturen.",
+          icon: Wrench,
+        },
+        {
+          title: "Photovoltaik",
+          text: "Nachhaltige Energie für Ihr Zuhause.",
+          icon: Sun,
+        },
+        {
+          title: "E-Mobilität",
+          text: "Wallboxen und Ladelösungen für Elektrofahrzeuge.",
+          icon: Car,
+        },
+        {
+          title: "E-Check",
+          text: "Prüfung elektrischer Anlagen für maximale Sicherheit.",
+          icon: ShieldCheck,
+        },
+      ].map((item, i) => {
+        const Icon = item.icon;
 
+        return (
+          <div
+            key={i}
+            className="p-6 bg-[#0b1220] rounded-xl border border-white/10 hover:border-blue-500 transition"
+          >
+            <Icon className="w-10 h-10 text-blue-400 mb-4" />
+
+            <h3 className="text-xl font-semibold mb-2">
+              {item.title}
+            </h3>
+
+            <p className="text-gray-400">
+              {item.text}
+            </p>
           </div>
-        </div>
-      </section>
+        );
+      })}
+
+    </div>
+  </div>
+</section>
 {/* ABLAUF */}
       <section id="ablauf" className="py-20 px-6 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
