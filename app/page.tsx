@@ -70,7 +70,7 @@ export default function Page() {
             </div>
           </div>
 
-          <img src="/hero-image.jpg" className="rounded-2xl" />
+          <img src="/meisterlogo.png" className="rounded-2xl" />
 
         </div>
       </section>
