@@ -56,10 +56,27 @@ export default function Page() {
             </h1>
 
             <p className="mt-6 text-gray-400 text-lg">
-              Planung, Installation und Wartung – modern, zuverlässig und zukunftssicher.
-            </p>
+  Planung, Installation und Wartung – modern, zuverlässig und zukunftssicher.
+</p>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+<div className="mt-8 flex items-center gap-4">
+  <img
+    src="/elektromeister.png"
+    alt="Elektromeister"
+    className="h-12 md:h-14"
+  />
+
+  <div>
+    <p className="text-sm font-medium text-white">
+      Meisterbetrieb für Elektrotechnik
+    </p>
+    <p className="text-xs text-gray-400">
+      Fachgerechte Ausführung nach Meisterstandard
+    </p>
+  </div>
+</div>
+
+<div className="mt-10 flex flex-col sm:flex-row gap-4">
               <a href="#kontakt" className="bg-blue-600 px-7 py-3 rounded-md">
                 Projekt anfragen
               </a>
@@ -70,14 +87,7 @@ export default function Page() {
             </div>
           </div>
 
-          <img
-  src="/meisterlogo.png"
-  alt="Elektromeister"
-  className="h-12 mt-6"
-/>
-<p className="text-sm text-gray-400 mt-2">
-  Meisterbetrieb für Elektrotechnik
-</p>
+          
         </div>
       </section>
 
