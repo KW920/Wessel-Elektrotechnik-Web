@@ -260,6 +260,7 @@ export default function Page() {
     ✉️ info@wessel-elektrotechnik.de
   </a>
 </div>
+    
       <div className="max-w-xl mx-auto">
 
     <h2 className="text-3xl mb-6 text-center">
@@ -353,11 +354,29 @@ export default function Page() {
       {/* FOOTER */}
       <footer className="py-10 border-t border-white/10">
 
-  <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+  <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-4 text-sm text-gray-500">
 
     <p>
       © 2026 Wessel Elektrotechnik
     </p>
+
+    <div className="flex flex-col items-center gap-2">
+
+      <a
+        href="tel:+4915110195846"
+        className="hover:text-white transition"
+      >
+        📞 0151 10195846
+      </a>
+
+      <a
+        href="mailto:info@wessel-elektrotechnik.de"
+        className="hover:text-white transition"
+      >
+        ✉️ info@wessel-elektrotechnik.de
+      </a>
+
+    </div>
 
     <div className="flex gap-6">
 
