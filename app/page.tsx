@@ -88,10 +88,10 @@ export default function Page() {
           </div>
 
          <img
-  src="/hero.jpg"
+  src="/Hero.jpg"
   alt="Wessel Elektrotechnik"
-  className="w-full max-w-xl mx-auto rounded-3xl shadow-2xl"
-/> 
+  className="w-full max-w-xl rounded-3xl shadow-2xl"
+/>
         </div>
       </section>
 
