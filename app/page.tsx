@@ -48,10 +48,10 @@ export default function Page() {
 
           <div>
             <p className="text-blue-400 text-xs mb-6">
-              ELEKTROtechnik • MEISTERBETRIEB AUS GREVEN
+              ELEKTROTECHNIK • MEISTERBETRIEB AUS GREVEN
             </p>
 
-            <h1 className="text-[56px] leading-tight font-bold">
+            <h1 className="text-5xl md:text-[56px] leading-tight font-bold">
               Elektrotechnik auf höchstem <span className="text-blue-500">Niveau.</span>
             </h1>
 
@@ -59,7 +59,7 @@ export default function Page() {
               Planung, Installation und Wartung – modern, zuverlässig und zukunftssicher.
             </p>
 
-            <div className="mt-10 flex gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <a href="#kontakt" className="bg-blue-600 px-7 py-3 rounded-md">
                 Projekt anfragen
               </a>
@@ -249,7 +249,18 @@ export default function Page() {
 </div>
       {/* KONTAKT */}
 <section id="kontakt" className="py-24 px-6">
-  <div className="max-w-xl mx-auto">
+  <div className="text-center mb-8">
+  <a href="tel:+4915110195846">
+    📞 0151 10195846
+  </a>
+
+  <br />
+
+  <a href="mailto:info@wessel-elektrotechnik.de">
+    ✉️ info@wessel-elektrotechnik.de
+  </a>
+</div>
+      <div className="max-w-xl mx-auto">
 
     <h2 className="text-3xl mb-6 text-center">
       Kontakt
