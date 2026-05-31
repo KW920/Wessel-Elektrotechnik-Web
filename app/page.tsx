@@ -61,7 +61,7 @@ export default function Page() {
 
 <div className="mt-8 flex items-center gap-4">
   <img
-    src="/elektromeister.png"
+    src="/meisterlogo.png"
     alt="Elektromeister"
     className="h-12 md:h-14"
   />
