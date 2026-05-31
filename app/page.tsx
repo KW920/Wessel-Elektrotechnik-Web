@@ -70,8 +70,14 @@ export default function Page() {
             </div>
           </div>
 
-          <img src="/meisterlogo.png" className="rounded-2xl" />
-
+          <img
+  src="/meisterlogo.png"
+  alt="Elektromeister"
+  className="h-12 mt-6"
+/>
+<p className="text-sm text-gray-400 mt-2">
+  Meisterbetrieb für Elektrotechnik
+</p>
         </div>
       </section>
 
