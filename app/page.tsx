@@ -88,7 +88,7 @@ export default function Page() {
           </div>
 
          <img
-  src="/Hero.jpg"
+  src="/Transit.png"
   alt="Wessel Elektrotechnik"
   className="w-full max-w-xl rounded-3xl shadow-2xl"
 />
