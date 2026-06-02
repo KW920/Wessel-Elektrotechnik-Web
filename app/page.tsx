@@ -96,7 +96,7 @@ export default function Page() {
           </div>
 
          <img
-  src="/Transit.png"
+  src="/TransitHero.png"
   alt="Wessel Elektrotechnik"
   className="w-full max-w-xl rounded-3xl shadow-2xl"
 />
