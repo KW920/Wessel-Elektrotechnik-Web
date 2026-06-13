@@ -222,78 +222,61 @@ export default function Page() {
 
   </div>
 </section>
-      {/* PROJEKTE */}
+      {/* PROJEKTE / LEISTUNGSBEREICHE */}
 <section id="projekte" className="py-20 px-6">
   <div className="max-w-7xl mx-auto">
 
-    <h2 className="text-3xl mb-12">Unsere Projekte</h2>
+    <h2 className="text-3xl mb-4">Leistungsbereiche</h2>
+
+    <p className="text-gray-400 mb-12 max-w-2xl">
+      Moderne Elektrotechnik aus einer Hand – von der klassischen Installation
+      bis zu Photovoltaik, Wallboxen und intelligentem Energiemanagement.
+    </p>
 
     <div className="grid md:grid-cols-3 gap-6">
 
       {[
         {
-          image: "/Projektbild.png",
-          title: "Neubau Einfamilienhaus"
+          image: "/TransitHero.png",
+          title: "Elektroinstallation",
+          text: "Saubere Elektroarbeiten für Neubau, Altbau, Modernisierung und Erweiterung."
         },
         {
-          image: "/Projektbild.png",
-          title: "Smart Home Installation"
+          image: "/TransitHero.png",
+          title: "Photovoltaik & Speicher",
+          text: "Installation und Anschluss moderner Energielösungen für mehr Unabhängigkeit."
         },
         {
-          image: "/Projektbild.png",
-          title: "Photovoltaik Anlage"
-        },
-        {
-          image: "/Projektbild.png",
-          title: "Industrieverkabelung"
-        },
-        {
-          image: "/Projektbild.png",
-          title: "Wallbox Installation"
-        },
-        {
-          image: "/Projektbild.png",
-          title: "Modernes Beleuchtungskonzept"
+          image: "/TransitHero.png",
+          title: "Wallboxen & E-Mobilität",
+          text: "Fachgerechte Installation von Ladelösungen für Zuhause und Gewerbe."
         },
       ].map((project, i) => (
         <div
           key={i}
           className="group rounded-xl overflow-hidden border border-white/10 bg-[#0b1220]"
         >
-
           <div className="overflow-hidden">
             <img
               src={project.image}
               alt={project.title}
-              onClick={() => {
-  const image = document.getElementById(
-    "lightbox-image"
-  ) as HTMLImageElement | null;
-
-  const title = document.getElementById(
-    "lightbox-title"
-  ) as HTMLElement | null;
-
-  const lightbox = document.getElementById(
-    "lightbox"
-  ) as HTMLElement | null;
-
-  if (image && title && lightbox) {
-    (image as HTMLImageElement).src = project.image;
-    title.innerText = project.title;
-    lightbox.classList.remove("hidden");
-  }
-}}
-              className="h-48 w-full object-cover cursor-pointer transition duration-500 group-hover:scale-110"
+              className="h-48 w-full object-cover transition duration-500 group-hover:scale-110"
             />
           </div>
 
-          <div className="p-4">
-            <p className="text-sm text-gray-300 font-medium">
+          <div className="p-5">
+            <p className="text-sm text-blue-400 mb-2">
+              Wessel Elektrotechnik
+            </p>
+
+            <h3 className="text-lg text-white font-semibold mb-2">
               {project.title}
+            </h3>
+
+            <p className="text-sm text-gray-400 leading-relaxed">
+              {project.text}
             </p>
           </div>
-
         </div>
       ))}
 
