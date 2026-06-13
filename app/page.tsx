@@ -172,30 +172,56 @@ export default function Page() {
   </div>
 </section>
 {/* ABLAUF */}
-      <section id="ablauf" className="py-20 px-6 border-t border-white/10">
-        <div className="max-w-6xl mx-auto">
+<section id="ablauf" className="py-20 px-6 border-t border-white/10">
+  <div className="max-w-6xl mx-auto">
 
-          <h2 className="text-3xl mb-12">So läuft Ihr Projekt ab</h2>
+    <h2 className="text-3xl mb-4">So läuft Ihr Projekt ab</h2>
 
-          <div className="grid md:grid-cols-3 gap-8 text-gray-400">
+    <p className="text-gray-400 mb-12 max-w-2xl">
+      Transparent, persönlich und zuverlässig – von der ersten Anfrage bis zur fertigen Umsetzung.
+    </p>
 
-            {[
-              ["01", "Beratung", "Wir besprechen Ihr Projekt und finden die beste Lösung."],
-              ["02", "Umsetzung", "Fachgerechte Installation durch unseren Meisterbetrieb."],
-              ["03", "Service", "Auch danach stehen wir Ihnen jederzeit zur Verfügung."]
-            ].map((step, i) => (
-              <div key={i}>
-                <div className="text-blue-500 text-xl mb-2">{step[0]}</div>
-                <h3 className="text-white font-semibold mb-2">{step[1]}</h3>
-                <p className="text-sm">{step[2]}</p>
-              </div>
-            ))}
+    <div className="grid md:grid-cols-3 gap-8 text-gray-400">
 
+      {[
+        [
+          "01",
+          "Unverbindliche Anfrage",
+          "Kontaktieren Sie uns telefonisch oder über das Kontaktformular für eine erste Beratung."
+        ],
+        [
+          "02",
+          "Individuelle Umsetzung",
+          "Wir planen und realisieren Ihr Projekt zuverlässig, sauber und termingerecht."
+        ],
+        [
+          "03",
+          "Langfristiger Service",
+          "Auch nach der Fertigstellung bleiben wir Ihr Ansprechpartner für Wartung, Service und Erweiterungen."
+        ]
+      ].map((step, i) => (
+        <div
+          key={i}
+          className="p-6 bg-[#0b1220] rounded-xl border border-white/10 hover:border-blue-500 transition"
+        >
+          <div className="text-blue-500 text-xl font-bold mb-3">
+            {step[0]}
           </div>
 
-        </div>
-      </section>
+          <h3 className="text-white font-semibold mb-3">
+            {step[1]}
+          </h3>
 
+          <p className="text-sm text-gray-400 leading-relaxed">
+            {step[2]}
+          </p>
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+</section>
       {/* PROJEKTE */}
 <section id="projekte" className="py-20 px-6">
   <div className="max-w-7xl mx-auto">
