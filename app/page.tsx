@@ -60,7 +60,7 @@ export default function Page() {
             </p>
 
             <h1 className="text-5xl md:text-[56px] leading-tight font-bold">
-              Elektrotechnik auf höchstem <span className="text-blue-500">Niveau.</span>
+              Elektrotechnik, Photovoltaik & Wallboxen aus einer Hand 
             </h1>
 
             <p className="mt-6 text-gray-400 text-lg">
