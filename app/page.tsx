@@ -518,52 +518,38 @@ export default function Page() {
 </section>
 
       {/* FOOTER */}
-      <footer className="py-10 border-t border-white/10">
+<footer className="py-10 border-t border-white/10">
+  <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-4 text-sm text-gray-500 text-center">
 
-  <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-4 text-sm text-gray-500">
+    <p className="text-gray-400">
+      Wessel Elektrotechnik · Fachbetrieb aus Greven für Elektrotechnik, Photovoltaik & Wallboxen im Münsterland
+    </p>
 
     <p>
       © 2026 Wessel Elektrotechnik
     </p>
 
-    <div className="flex flex-col items-center gap-2">
-
-      <a
-        href="tel:+4915110195846"
-        className="hover:text-white transition"
-      >
+    <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+      <a href="tel:+4915110195846" className="hover:text-white transition">
         📞 0151 10195846
       </a>
 
-      <a
-        href="mailto:info@wessel-elektrotechnik.de"
-        className="hover:text-white transition"
-      >
+      <a href="mailto:info@wessel-elektrotechnik.de" className="hover:text-white transition">
         ✉️ info@wessel-elektrotechnik.de
       </a>
-
     </div>
 
     <div className="flex gap-6">
-
-      <a
-        href="/impressum"
-        className="hover:text-white transition"
-      >
+      <a href="/impressum" className="hover:text-white transition">
         Impressum
       </a>
 
-      <a
-        href="/datenschutz"
-        className="hover:text-white transition"
-      >
+      <a href="/datenschutz" className="hover:text-white transition">
         Datenschutz
       </a>
-
     </div>
 
   </div>
-
 </footer>
 
     </div>
