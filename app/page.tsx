@@ -16,6 +16,8 @@ export default function Page() {
   const [telefon, setTelefon] = useState("");
   const [nachricht, setNachricht] = useState("");
   const [email, setEmail] = useState("");
+  const [ort, setOrt] = useState("");
+  const [anliegen, setAnliegen] = useState("");
   
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -379,107 +381,139 @@ export default function Page() {
   </div>
 </section>
       {/* KONTAKT */}
-<section id="kontakt" className="py-24 px-6">
-  <div className="text-center mb-8">
-  <a href="tel:+4915110195846">
-    📞 0151 10195846
-  </a>
+<section id="kontakt" className="py-24 px-6 border-t border-white/10">
+  <div className="max-w-5xl mx-auto">
 
-  <br />
+    <div className="text-center mb-12">
+      <h2 className="text-3xl mb-4">Projekt anfragen</h2>
 
-  <a href="mailto:info@wessel-elektrotechnik.de">
-    ✉️ info@wessel-elektrotechnik.de
-  </a>
-</div>
-    
-      <div className="max-w-xl mx-auto">
+      <p className="text-gray-400 max-w-2xl mx-auto">
+        Beschreiben Sie kurz Ihr Vorhaben – ich melde mich persönlich zurück.
+      </p>
 
-    <h2 className="text-3xl mb-6 text-center">
-      Kontakt
-    </h2>
+      <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4 text-gray-300">
+        <a href="tel:+4915110195846">
+          📞 0151 10195846
+        </a>
 
-    <form
-      className="grid gap-4"
-      onSubmit={async (e) => {
-        e.preventDefault();
+        <a href="mailto:info@wessel-elektrotechnik.de">
+          ✉️ info@wessel-elektrotechnik.de
+        </a>
+      </div>
+    </div>
 
-        setLoading(true);
+    <div className="max-w-xl mx-auto bg-[#0b1220] border border-white/10 rounded-2xl p-6 md:p-8">
 
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            telefon,
-            email,
-            nachricht,
-          }),
-        });
+      <form
+        className="grid gap-4"
+        onSubmit={async (e) => {
+          e.preventDefault();
 
-        setLoading(false);
+          setLoading(true);
 
-        if (response.ok) {
-          setSuccess(true);
+          const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name,
+              telefon,
+              email,
+              ort,
+              anliegen,
+              nachricht,
+            }),
+          });
 
-          setName("");
-          setTelefon("");
-          setEmail("");
-          setNachricht("");
-        }
-      }}
-    >
+          setLoading(false);
 
-      <input
-  value={name}
-  onChange={(e) => setName(e.target.value)}
-  placeholder="Name"
-  required
-  className="p-4 bg-[#0b1220] rounded"
-/>
+          if (response.ok) {
+            setSuccess(true);
 
-<input
-  value={telefon}
-  onChange={(e) => setTelefon(e.target.value)}
-  placeholder="Telefon"
-  required
-  className="p-4 bg-[#0b1220] rounded"
-/>
-
-<input
-  value={email}
-  onChange={(e) => setEmail(e.target.value)}
-  type="email"
-  placeholder="E-Mail"
-  required
-  className="p-4 bg-[#0b1220] rounded"
-/>
-
-      <textarea
-        value={nachricht}
-        onChange={(e) => setNachricht(e.target.value)}
-        placeholder="Nachricht"
-        required
-        className="p-4 bg-[#0b1220] rounded h-32"
-      />
-
-      <button
-        type="submit"
-        disabled={loading}
-        className="bg-blue-600 py-3 rounded hover:bg-blue-500 transition"
+            setName("");
+            setTelefon("");
+            setEmail("");
+            setOrt("");
+            setAnliegen("");
+            setNachricht("");
+          }
+        }}
       >
-        {loading ? "Wird gesendet..." : "Anfrage senden"}
-      </button>
 
-      {success && (
-        <p className="text-green-500 text-center">
-          Vielen Dank! Ihre Anfrage wurde erfolgreich versendet.
-        </p>
-      )}
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Name"
+          required
+          className="p-4 bg-[#050b14] rounded border border-white/10"
+        />
 
-    </form>
+        <input
+          value={telefon}
+          onChange={(e) => setTelefon(e.target.value)}
+          placeholder="Telefon"
+          required
+          className="p-4 bg-[#050b14] rounded border border-white/10"
+        />
 
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          placeholder="E-Mail"
+          required
+          className="p-4 bg-[#050b14] rounded border border-white/10"
+        />
+
+        <input
+          value={ort}
+          onChange={(e) => setOrt(e.target.value)}
+          placeholder="Ort / Einsatzort"
+          className="p-4 bg-[#050b14] rounded border border-white/10"
+        />
+
+        <select
+          value={anliegen}
+          onChange={(e) => setAnliegen(e.target.value)}
+          required
+          className="p-4 bg-[#050b14] rounded border border-white/10 text-gray-400"
+        >
+          <option value="">Anliegen auswählen</option>
+          <option value="Elektroinstallation">Elektroinstallation</option>
+          <option value="Photovoltaik">Photovoltaik</option>
+          <option value="Wallbox">Wallbox</option>
+          <option value="Smart Home">Smart Home</option>
+          <option value="Energiemanagement">Energiemanagement</option>
+          <option value="Kundendienst">Kundendienst</option>
+          <option value="Sonstiges">Sonstiges</option>
+        </select>
+
+        <textarea
+          value={nachricht}
+          onChange={(e) => setNachricht(e.target.value)}
+          placeholder="Nachricht"
+          required
+          className="p-4 bg-[#050b14] rounded border border-white/10 h-32"
+        />
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-blue-600 py-3 rounded hover:bg-blue-500 transition disabled:opacity-60"
+        >
+          {loading ? "Wird gesendet..." : "Anfrage senden"}
+        </button>
+
+        {success && (
+          <p className="text-green-500 text-center">
+            Vielen Dank! Ihre Anfrage wurde erfolgreich versendet.
+          </p>
+        )}
+
+      </form>
+
+    </div>
   </div>
 </section>
 
