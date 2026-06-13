@@ -38,7 +38,7 @@ export default function Page() {
             <a href="#kontakt">Kontakt</a>
           </nav>
             <a
-              href="tel:+492571123456"
+              href="tel:+4915110195846"
               className="hidden lg:block text-sm text-gray-300"
               >
              📞 02571 / 123456
@@ -51,58 +51,56 @@ export default function Page() {
       </header>
 
       {/* HERO */}
-      <section className="pt-36 pb-24 px-6 relative">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+<section className="pt-36 pb-24 px-6 relative">
+  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
-          <div>
-            <p className="text-blue-400 text-xs mb-6">
-              ELEKTROTECHNIK • MEISTERBETRIEB AUS GREVEN
-            </p>
+    <div>
+      <p className="text-blue-400 text-xs mb-6 uppercase tracking-wider">
+        ELEKTROTECHNIK • FACHBETRIEB AUS GREVEN
+      </p>
 
-            <h1 className="text-5xl md:text-[56px] leading-tight font-bold">
-              Elektrotechnik, Photovoltaik & Wallboxen aus einer Hand 
-            </h1>
+      <h1 className="text-5xl md:text-[56px] leading-tight font-bold">
+        Elektrotechnik, Photovoltaik &
+        <span className="text-blue-500"> Wallboxen aus einer Hand.</span>
+      </h1>
 
-            <p className="mt-6 text-gray-400 text-lg">
-  Planung, Installation und Wartung – modern, zuverlässig und zukunftssicher.
-</p>
+      <p className="mt-6 text-gray-300 text-lg leading-relaxed">
+        Ihr Fachbetrieb für moderne Elektrotechnik im Münsterland –
+        mit 23 Jahren Berufserfahrung in Elektroinstallation,
+        Photovoltaik, E-Mobilität und intelligenter Gebäudetechnik.
+      </p>
 
-<div className="mt-8 flex items-center gap-4">
-  <img
-    src="/meisterlogo.png"
-    alt="Elektromeister"
-    className="h-12 md:h-14"
-  />
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-200">
+        <div>✓ 23 Jahre Berufserfahrung</div>
+        <div>✓ Eingetragener Fachbetrieb</div>
+        <div>✓ Regional im Münsterland</div>
+        <div>✓ Persönlicher Ansprechpartner</div>
+      </div>
 
-  <div>
-    <p className="text-sm font-medium text-white">
-      Meisterbetrieb für Elektrotechnik
-    </p>
-    <p className="text-xs text-gray-400">
-      Fachgerechte Ausführung nach Meisterstandard
-    </p>
+      <div className="mt-10 flex flex-col sm:flex-row gap-4">
+        <a
+          href="#kontakt"
+          className="bg-blue-600 hover:bg-blue-700 transition px-7 py-3 rounded-md text-center"
+        >
+          Projekt anfragen
+        </a>
+
+        <a
+          href="#leistungen"
+          className="border border-white/20 hover:border-blue-500 transition px-7 py-3 rounded-md text-center"
+        >
+          Unsere Leistungen
+        </a>
+      </div>
+    </div>
+
+    <img
+      src="/TransitHero.png"
+      alt="Wessel Elektrotechnik Fahrzeug"
+      className="w-full max-w-xl rounded-3xl shadow-2xl"
+    />
   </div>
-</div>
-
-<div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <a href="#kontakt" className="bg-blue-600 px-7 py-3 rounded-md">
-                Projekt anfragen
-              </a>
-
-              <a href="#leistungen" className="border border-white/20 px-7 py-3 rounded-md">
-                Unsere Leistungen
-              </a>
-            </div>
-          </div>
-
-         <img
-  src="/TransitHero.png"
-  alt="Wessel Elektrotechnik"
-  className="w-full max-w-xl rounded-3xl shadow-2xl"
-/>
-        </div>
-      </section>
-
+</section>
       {/* LEISTUNGEN */}
 <section id="leistungen" className="py-24 px-6">
   <div className="max-w-7xl mx-auto">
