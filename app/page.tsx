@@ -327,6 +327,57 @@ export default function Page() {
   </div>
 
 </div>
+{/* WARUM WESSEL ELEKTROTECHNIK */}
+<section className="py-20 px-6 border-t border-white/10">
+  <div className="max-w-6xl mx-auto">
+
+    <h2 className="text-3xl mb-4">
+      Warum Wessel Elektrotechnik?
+    </h2>
+
+    <p className="text-gray-400 mb-12 max-w-2xl">
+      Persönliche Betreuung, langjährige Erfahrung und moderne Lösungen für
+      Elektrotechnik, Photovoltaik und E-Mobilität im Münsterland.
+    </p>
+
+    <div className="grid md:grid-cols-4 gap-6">
+
+      <div className="p-6 bg-[#0b1220] rounded-xl border border-white/10">
+        <div className="text-blue-400 text-3xl mb-3">⚡</div>
+        <h3 className="font-semibold mb-2">23 Jahre Erfahrung</h3>
+        <p className="text-sm text-gray-400">
+          Langjährige Erfahrung in Elektroinstallation und moderner Gebäudetechnik.
+        </p>
+      </div>
+
+      <div className="p-6 bg-[#0b1220] rounded-xl border border-white/10">
+        <div className="text-blue-400 text-3xl mb-3">📍</div>
+        <h3 className="font-semibold mb-2">Regional vor Ort</h3>
+        <p className="text-sm text-gray-400">
+          Ihr Ansprechpartner im Münsterland mit kurzen Wegen und persönlichem Kontakt.
+        </p>
+      </div>
+
+      <div className="p-6 bg-[#0b1220] rounded-xl border border-white/10">
+        <div className="text-blue-400 text-3xl mb-3">🤝</div>
+        <h3 className="font-semibold mb-2">Persönliche Betreuung</h3>
+        <p className="text-sm text-gray-400">
+          Von der ersten Beratung bis zur Fertigstellung haben Sie einen festen Ansprechpartner.
+        </p>
+      </div>
+
+      <div className="p-6 bg-[#0b1220] rounded-xl border border-white/10">
+        <div className="text-blue-400 text-3xl mb-3">🔋</div>
+        <h3 className="font-semibold mb-2">Moderne Energielösungen</h3>
+        <p className="text-sm text-gray-400">
+          Photovoltaik, Speicher, Wallboxen und intelligentes Energiemanagement aus einer Hand.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
       {/* KONTAKT */}
 <section id="kontakt" className="py-24 px-6">
   <div className="text-center mb-8">
