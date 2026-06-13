@@ -8,6 +8,7 @@ import {
   Sun,
   Car,
   ShieldCheck,
+  BarChart3,
 } from "lucide-react";
 
 export default function Page() {
@@ -110,37 +111,37 @@ export default function Page() {
     <div className="grid md:grid-cols-3 gap-6">
 
       {[
-        {
-          title: "Elektroinstallation",
-          text: "Ob Alt- oder Neubau, wir sind der richtige Ansprechpartner.",
-          icon: Zap,
-        },
-        {
-          title: "Smart Home",
-          text: "Moderne und intelligente Gebäudesteuerung.",
-          icon: House,
-        },
-        {
-          title: "Kundendienst",
-          text: "Schnelle Hilfe bei Störungen und Reparaturen.",
-          icon: Wrench,
-        },
-        {
-          title: "Photovoltaik",
-          text: "Nachhaltige Energie für Ihr Zuhause.",
-          icon: Sun,
-        },
-        {
-          title: "E-Mobilität",
-          text: "Wallboxen und Ladelösungen für Elektrofahrzeuge.",
-          icon: Car,
-        },
-        {
-          title: "E-Check",
-          text: "Prüfung elektrischer Anlagen für maximale Sicherheit.",
-          icon: ShieldCheck,
-        },
-      ].map((item, i) => {
+  {
+    title: "Elektroinstallation",
+    text: "Elektroinstallationen für Neu- und Altbauten, Modernisierungen sowie Erweiterungen bestehender Anlagen.",
+    icon: Zap,
+  },
+  {
+    title: "Photovoltaik",
+    text: "Planung, Installation und Anschluss moderner Photovoltaikanlagen für maximale Energieunabhängigkeit.",
+    icon: Sun,
+  },
+  {
+    title: "E-Mobilität",
+    text: "Wallboxen und intelligente Ladelösungen für private und gewerbliche Elektrofahrzeuge.",
+    icon: Car,
+  },
+  {
+    title: "Energiemanagement",
+    text: "Intelligente Steuerung von Photovoltaik, Speicher, Wallbox und Hausverbrauch für maximale Effizienz.",
+    icon: BarChart3,
+  },
+  {
+    title: "Smart Home",
+    text: "Moderne Gebäudeautomation für Licht, Heizung, Beschattung und Energiemanagement.",
+    icon: House,
+  },
+  {
+    title: "Kundendienst & Service",
+    text: "Schnelle Hilfe bei Störungen, Reparaturen, Wartungen und elektrischen Prüfungen.",
+    icon: Wrench,
+  },
+].map((item, i) => {
         const Icon = item.icon;
 
         return (
@@ -158,10 +159,16 @@ export default function Page() {
               {item.text}
             </p>
           </div>
+          
         );
-      })}
+            })}
 
     </div>
+
+    <div className="mt-12 text-center text-gray-400 text-sm">
+      ✓ Elektroinstallation · ✓ Photovoltaik · ✓ Wallboxen · ✓ Smart Home · ✓ Energiemanagement · ✓ Kundendienst · ✓ E-Check
+    </div>
+
   </div>
 </section>
 {/* ABLAUF */}
