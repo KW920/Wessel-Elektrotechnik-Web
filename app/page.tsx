@@ -435,7 +435,7 @@ export default function Page() {
     </div>
 
     {/* KARTEN */}
-    <div className="grid md:grid-cols-3 gap-6">
+    <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
       {[
         {
@@ -476,8 +476,8 @@ export default function Page() {
             "
           >
 
-            {/* BILDBEREICH */}
-            <div className="relative h-80 overflow-hidden">
+            {/* BILDBEREICH IM HOCHFORMAT */}
+            <div className="relative aspect-[4/5] overflow-hidden">
               <img
                 src={project.image}
                 alt={project.title}
@@ -491,11 +491,18 @@ export default function Page() {
                 "
               />
 
-              {/* leichter Verlauf ins Karten-Design */}
-              <div className="
-                absolute inset-x-0 bottom-0 h-24
-                bg-gradient-to-t from-[#07111f] to-transparent
-              " />
+              {/* WEICHER ÜBERGANG ZUM TEXTBEREICH */}
+              <div
+                className="
+                  absolute
+                  inset-x-0
+                  bottom-0
+                  h-28
+                  bg-gradient-to-t
+                  from-[#07111f]
+                  to-transparent
+                "
+              />
             </div>
 
             {/* INHALT */}
