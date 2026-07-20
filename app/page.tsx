@@ -429,47 +429,73 @@ export default function Page() {
 
       {[
         {
-          image: "/TransitHero.png",
+          image: "/leistungen/elektroinstallation.webp",
           title: "Elektroinstallation",
           text: "Saubere Elektroarbeiten für Neubau, Altbau, Modernisierung und Erweiterung."
         },
         {
-          image: "/TransitHero.png",
+          image: "/leistungen/photovoltaik-speicher.webp",
           title: "Photovoltaik & Speicher",
           text: "Installation und Anschluss moderner Energielösungen für mehr Unabhängigkeit."
         },
         {
-          image: "/TransitHero.png",
+          image: "/leistungen/wallbox-emobilitaet.webp",
           title: "Wallboxen & E-Mobilität",
           text: "Fachgerechte Installation von Ladelösungen für Zuhause und Gewerbe."
         },
       ].map((project, i) => (
+
         <div
           key={i}
-          className="group rounded-xl overflow-hidden border border-white/10 bg-[#0b1220]"
+          className="
+            group
+            rounded-2xl
+            overflow-hidden
+            border border-white/10
+            bg-gradient-to-br from-white/[0.05] to-white/[0.015]
+            backdrop-blur-sm
+            transition-all duration-300
+            hover:-translate-y-1
+            hover:border-blue-400/40
+            hover:shadow-[0_18px_45px_rgba(0,90,255,0.12)]
+          "
         >
-          <div className="overflow-hidden">
+
+          {/* BILD */}
+          <div className="overflow-hidden h-64 md:h-72">
             <img
               src={project.image}
               alt={project.title}
-              className="h-48 w-full object-cover transition duration-500 group-hover:scale-110"
+              className="
+                w-full
+                h-full
+                object-cover
+                object-center
+                transition-transform duration-500
+                group-hover:scale-105
+              "
             />
           </div>
 
-          <div className="p-5">
+          {/* TEXT */}
+          <div className="p-6">
+
             <p className="text-sm text-blue-400 mb-2">
               Wessel Elektrotechnik
             </p>
 
-            <h3 className="text-lg text-white font-semibold mb-2">
+            <h3 className="text-xl text-white font-semibold mb-3 tracking-tight">
               {project.title}
             </h3>
 
             <p className="text-sm text-gray-400 leading-relaxed">
               {project.text}
             </p>
+
           </div>
+
         </div>
+
       ))}
 
     </div>
