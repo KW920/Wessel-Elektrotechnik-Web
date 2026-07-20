@@ -823,35 +823,55 @@ export default function Page() {
 </section>
 
       {/* FOOTER */}
-<footer className="py-10 border-t border-white/10">
-  <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-4 text-sm text-gray-500 text-center">
+<footer className="border-t border-white/10 bg-black/20 backdrop-blur-sm">
+  <div className="max-w-7xl mx-auto px-6 py-10">
 
-    <p className="text-gray-400">
-      Wessel Elektrotechnik · Fachbetrieb aus Greven für Elektrotechnik, Photovoltaik & Wallboxen im Münsterland
-    </p>
+    <div className="flex flex-col md:flex-row items-center justify-between gap-8">
 
-    <p>
-      © 2026 Wessel Elektrotechnik
-    </p>
+      {/* LOGO + BESCHREIBUNG */}
+      <div className="flex flex-col items-center md:items-start gap-4">
 
-    <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
-      <a href="tel:+4915110195846" className="hover:text-white transition">
-        📞 0151 10195846
-      </a>
+        <img
+          src="/logo-night.svg"
+          alt="Wessel Elektrotechnik"
+          className="h-12 w-auto"
+        />
 
-      <a href="mailto:info@wessel-elektrotechnik.de" className="hover:text-white transition">
-        ✉️ info@wessel-elektrotechnik.de
-      </a>
-    </div>
+        <p className="text-sm text-gray-500 text-center md:text-left max-w-md leading-relaxed">
+          Ihr Fachbetrieb aus Greven für Elektrotechnik, Photovoltaik,
+          Wallboxen und moderne Gebäudetechnik im Münsterland.
+        </p>
 
-    <div className="flex gap-6">
-      <a href="/impressum" className="hover:text-white transition">
-        Impressum
-      </a>
+      </div>
 
-      <a href="/datenschutz" className="hover:text-white transition">
-        Datenschutz
-      </a>
+
+      {/* LINKS */}
+      <div className="flex flex-col items-center md:items-end gap-4">
+
+        <div className="flex gap-6 text-sm text-gray-400">
+
+          <a
+            href="/impressum"
+            className="hover:text-blue-400 transition-colors"
+          >
+            Impressum
+          </a>
+
+          <a
+            href="/datenschutz"
+            className="hover:text-blue-400 transition-colors"
+          >
+            Datenschutz
+          </a>
+
+        </div>
+
+        <p className="text-xs text-gray-600">
+          © 2026 Wessel Elektrotechnik
+        </p>
+
+      </div>
+
     </div>
 
   </div>
