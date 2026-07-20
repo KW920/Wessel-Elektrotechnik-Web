@@ -199,10 +199,7 @@ export default function Page() {
 
     </div>
 
-    <div className="mt-12 text-center text-gray-400 text-sm">
-      ✓ Elektroinstallation · ✓ Photovoltaik · ✓ Wallboxen · ✓ Smart Home · ✓ Energiemanagement · ✓ Kundendienst · ✓ E-Check
-    </div>
-
+    
   </div>
 </section>
 {/* ABLAUF */}
@@ -236,11 +233,32 @@ export default function Page() {
       ].map((step, i) => (
         <div
           key={i}
-          className="p-6 bg-[#0b1220] rounded-xl border border-white/10 hover:border-blue-500 transition"
+          className="
+  group
+  relative
+  p-7
+  rounded-2xl
+  border border-white/10
+  bg-gradient-to-br from-white/[0.05] to-white/[0.015]
+  backdrop-blur-sm
+  transition-all duration-300
+  hover:-translate-y-1
+  hover:border-blue-400/40
+  hover:shadow-[0_18px_45px_rgba(0,90,255,0.10)]
+"
         >
-          <div className="text-blue-500 text-xl font-bold mb-3">
-            {step[0]}
-          </div>
+          <div className="
+  w-11 h-11
+  mb-5
+  rounded-xl
+  border border-blue-400/20
+  bg-blue-500/10
+  flex items-center justify-center
+  text-blue-400
+  text-sm font-bold
+">
+  {step[0]}
+</div>
 
           <h3 className="text-white font-semibold mb-3">
             {step[1]}
