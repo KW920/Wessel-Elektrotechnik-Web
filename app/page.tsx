@@ -248,7 +248,7 @@ export default function Page() {
     <img
       src="/TransitHero.png"
       alt="Wessel Elektrotechnik Fahrzeug"
-      className="w-full max-w-xl rounded-3xl shadow-2xl border border-white/10 bg-black/20
+      className="hidden md:block w-full max-w-xl rounded-3xl shadow-2xl border border-white/10 bg-black/20
            drop-shadow-[0_0_35px_rgba(37,99,235,0.18)]"
     />
   </div>
