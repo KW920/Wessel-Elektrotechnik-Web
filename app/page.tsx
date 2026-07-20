@@ -158,15 +158,38 @@ export default function Page() {
         return (
           <div
             key={i}
-            className="p-6 bg-[#0b1220] rounded-xl border border-white/10 hover:border-blue-500 transition"
+            className="
+  group
+  p-6
+  rounded-2xl
+  border border-white/10
+  bg-gradient-to-br from-white/[0.05] to-white/[0.015]
+  backdrop-blur-sm
+  transition-all duration-300
+  hover:-translate-y-1
+  hover:border-blue-400/40
+  hover:shadow-[0_18px_45px_rgba(0,90,255,0.12)]
+"
           >
-            <Icon className="w-10 h-10 text-blue-400 mb-4" />
+            <div className="
+  w-12 h-12
+  mb-5
+  rounded-xl
+  border border-blue-400/20
+  bg-blue-500/10
+  flex items-center justify-center
+  transition-all duration-300
+  group-hover:bg-blue-500/15
+  group-hover:border-blue-400/40
+">
+  <Icon className="w-6 h-6 text-blue-400" />
+</div>
 
-            <h3 className="text-xl font-semibold mb-2">
+            <h3 className="text-xl font-semibold mb-3 tracking-tight">
               {item.title}
             </h3>
 
-            <p className="text-gray-400">
+            <p className="text-gray-400 leading-relaxed">
               {item.text}
             </p>
           </div>
