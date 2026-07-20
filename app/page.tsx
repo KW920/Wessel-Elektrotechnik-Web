@@ -202,11 +202,11 @@ export default function Page() {
   <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
     <div>
-      <p className="text-blue-400 text-xs mb-6 uppercase tracking-wider">
+      <p className="text-blue-400 text-xs mb-5 uppercase tracking-wider">
         ELEKTROTECHNIK • FACHBETRIEB AUS GREVEN
       </p>
 
-      <h1 className="text-5xl md:text-[56px] leading-tight font-bold">
+      <h1 className="text-[42px] sm:text-5xl md:text-[56px] leading-[1.12] font-bold tracking-tight">
   Elektrotechnik, Photovoltaik &
   <span className="text-blue-400"> Wallboxen</span>
   <span className="text-white"> aus einer Hand.</span>
