@@ -11,7 +11,9 @@ import {
   BarChart3,
   MapPin,
   Handshake,
-BatteryCharging,
+  BatteryCharging,
+  Phone,
+  Mail,
 } from "lucide-react";
 
 export default function Page() {
@@ -456,139 +458,367 @@ export default function Page() {
 </div>
 </section>
       {/* KONTAKT */}
-<section id="kontakt" className="py-24 px-6 border-t border-white/10">
-  <div className="max-w-5xl mx-auto">
+<section
+  id="kontakt"
+  className="py-24 px-6 border-t border-white/10"
+>
+  <div className="max-w-6xl mx-auto">
 
-    <div className="text-center mb-12">
-      <h2 className="text-3xl mb-4">Projekt anfragen</h2>
+    <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start">
 
-      <p className="text-gray-400 max-w-2xl mx-auto">
-        Beschreiben Sie kurz Ihr Vorhaben – ich melde mich persönlich zurück.
-      </p>
+      {/* LINKE SEITE */}
+      <div className="lg:sticky lg:top-32">
 
-      <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4 text-gray-300">
-        <a href="tel:+4915110195846">
-          📞 0151 10195846
-        </a>
+        <p className="text-blue-400 text-xs uppercase tracking-wider mb-4">
+          Kontakt
+        </p>
 
-        <a href="mailto:info@wessel-elektrotechnik.de">
-          ✉️ info@wessel-elektrotechnik.de
-        </a>
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-5">
+          Projekt anfragen
+        </h2>
+
+        <p className="text-gray-400 leading-relaxed max-w-md">
+          Sie planen ein Projekt rund um Elektrotechnik, Photovoltaik,
+          Wallboxen oder Smart Home? Beschreiben Sie mir kurz Ihr Vorhaben –
+          ich melde mich persönlich bei Ihnen zurück.
+        </p>
+
+        <div className="mt-10 flex flex-col gap-4">
+
+          <a
+            href="tel:+4915110195846"
+            className="
+              group
+              flex items-center gap-4
+              p-4
+              rounded-xl
+              border border-white/10
+              bg-white/[0.025]
+              transition-all duration-300
+              hover:border-blue-400/30
+              hover:bg-white/[0.04]
+            "
+          >
+            <div
+              className="
+                w-11 h-11
+                rounded-xl
+                border border-blue-400/20
+                bg-blue-500/10
+                flex items-center justify-center
+              "
+            >
+              <Phone className="w-5 h-5 text-blue-400" />
+            </div>
+
+            <div>
+              <p className="text-xs text-gray-500 mb-1">
+                Telefon
+              </p>
+
+              <p className="text-sm text-white">
+                0151 10195846
+              </p>
+            </div>
+          </a>
+
+          <a
+            href="mailto:info@wessel-elektrotechnik.de"
+            className="
+              group
+              flex items-center gap-4
+              p-4
+              rounded-xl
+              border border-white/10
+              bg-white/[0.025]
+              transition-all duration-300
+              hover:border-blue-400/30
+              hover:bg-white/[0.04]
+            "
+          >
+            <div
+              className="
+                w-11 h-11
+                rounded-xl
+                border border-blue-400/20
+                bg-blue-500/10
+                flex items-center justify-center
+              "
+            >
+              <Mail className="w-5 h-5 text-blue-400" />
+            </div>
+
+            <div>
+              <p className="text-xs text-gray-500 mb-1">
+                E-Mail
+              </p>
+
+              <p className="text-sm text-white">
+                info@wessel-elektrotechnik.de
+              </p>
+            </div>
+          </a>
+
+        </div>
       </div>
-    </div>
 
-    <div className="max-w-xl mx-auto bg-[#0b1220] border border-white/10 rounded-2xl p-6 md:p-8">
 
-      <form
-        className="grid gap-4"
-        onSubmit={async (e) => {
-          e.preventDefault();
-
-          setLoading(true);
-
-          const response = await fetch("/api/contact", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              name,
-              telefon,
-              email,
-              ort,
-              anliegen,
-              nachricht,
-            }),
-          });
-
-          setLoading(false);
-
-          if (response.ok) {
-            setSuccess(true);
-
-            setName("");
-            setTelefon("");
-            setEmail("");
-            setOrt("");
-            setAnliegen("");
-            setNachricht("");
-          }
-        }}
+      {/* FORMULAR */}
+      <div
+        className="
+          rounded-2xl
+          border border-white/10
+          bg-gradient-to-br from-white/[0.05] to-white/[0.015]
+          backdrop-blur-md
+          p-6 md:p-8
+          shadow-[0_25px_70px_rgba(0,0,0,0.25)]
+        "
       >
 
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
-          required
-          className="p-4 bg-[#050b14] rounded border border-white/10"
-        />
+        <form
+          className="grid gap-5"
+          onSubmit={async (e) => {
+            e.preventDefault();
 
-        <input
-          value={telefon}
-          onChange={(e) => setTelefon(e.target.value)}
-          placeholder="Telefon"
-          required
-          className="p-4 bg-[#050b14] rounded border border-white/10"
-        />
+            setLoading(true);
 
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="E-Mail"
-          required
-          className="p-4 bg-[#050b14] rounded border border-white/10"
-        />
+            const response = await fetch("/api/contact", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                name,
+                telefon,
+                email,
+                ort,
+                anliegen,
+                nachricht,
+              }),
+            });
 
-        <input
-          value={ort}
-          onChange={(e) => setOrt(e.target.value)}
-          placeholder="Ort / Einsatzort"
-          className="p-4 bg-[#050b14] rounded border border-white/10"
-        />
+            setLoading(false);
 
-        <select
-          value={anliegen}
-          onChange={(e) => setAnliegen(e.target.value)}
-          required
-          className="p-4 bg-[#050b14] rounded border border-white/10 text-gray-400"
+            if (response.ok) {
+              setSuccess(true);
+
+              setName("");
+              setTelefon("");
+              setEmail("");
+              setOrt("");
+              setAnliegen("");
+              setNachricht("");
+            }
+          }}
         >
-          <option value="">Anliegen auswählen</option>
-          <option value="Elektroinstallation">Elektroinstallation</option>
-          <option value="Photovoltaik">Photovoltaik</option>
-          <option value="Wallbox">Wallbox</option>
-          <option value="Smart Home">Smart Home</option>
-          <option value="Energiemanagement">Energiemanagement</option>
-          <option value="Kundendienst">Kundendienst</option>
-          <option value="Sonstiges">Sonstiges</option>
-        </select>
 
-        <textarea
-          value={nachricht}
-          onChange={(e) => setNachricht(e.target.value)}
-          placeholder="Nachricht"
-          required
-          className="p-4 bg-[#050b14] rounded border border-white/10 h-32"
-        />
+          {/* NAME + TELEFON */}
+          <div className="grid md:grid-cols-2 gap-4">
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="bg-blue-600 py-3 rounded hover:bg-blue-500 transition disabled:opacity-60"
-        >
-          {loading ? "Wird gesendet..." : "Anfrage senden"}
-        </button>
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
+              required
+              className="
+                p-4
+                rounded-xl
+                bg-black/20
+                border border-white/10
+                text-white
+                placeholder:text-gray-500
+                outline-none
+                transition
+                focus:border-blue-400/50
+                focus:bg-black/30
+              "
+            />
 
-        {success && (
-          <p className="text-green-500 text-center">
-            Vielen Dank! Ihre Anfrage wurde erfolgreich versendet.
-          </p>
-        )}
+            <input
+              value={telefon}
+              onChange={(e) => setTelefon(e.target.value)}
+              placeholder="Telefon"
+              required
+              className="
+                p-4
+                rounded-xl
+                bg-black/20
+                border border-white/10
+                text-white
+                placeholder:text-gray-500
+                outline-none
+                transition
+                focus:border-blue-400/50
+                focus:bg-black/30
+              "
+            />
 
-      </form>
+          </div>
+
+
+          {/* EMAIL + ORT */}
+          <div className="grid md:grid-cols-2 gap-4">
+
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="E-Mail"
+              required
+              className="
+                p-4
+                rounded-xl
+                bg-black/20
+                border border-white/10
+                text-white
+                placeholder:text-gray-500
+                outline-none
+                transition
+                focus:border-blue-400/50
+                focus:bg-black/30
+              "
+            />
+
+            <input
+              value={ort}
+              onChange={(e) => setOrt(e.target.value)}
+              placeholder="Ort / Einsatzort"
+              className="
+                p-4
+                rounded-xl
+                bg-black/20
+                border border-white/10
+                text-white
+                placeholder:text-gray-500
+                outline-none
+                transition
+                focus:border-blue-400/50
+                focus:bg-black/30
+              "
+            />
+
+          </div>
+
+
+          {/* ANLIEGEN */}
+          <select
+            value={anliegen}
+            onChange={(e) => setAnliegen(e.target.value)}
+            required
+            className="
+              p-4
+              rounded-xl
+              bg-black/20
+              border border-white/10
+              text-gray-300
+              outline-none
+              transition
+              focus:border-blue-400/50
+              focus:bg-black/30
+            "
+          >
+            <option value="">
+              Anliegen auswählen
+            </option>
+
+            <option value="Elektroinstallation">
+              Elektroinstallation
+            </option>
+
+            <option value="Photovoltaik">
+              Photovoltaik
+            </option>
+
+            <option value="Wallbox">
+              Wallbox
+            </option>
+
+            <option value="Smart Home">
+              Smart Home
+            </option>
+
+            <option value="Energiemanagement">
+              Energiemanagement
+            </option>
+
+            <option value="Kundendienst">
+              Kundendienst
+            </option>
+
+            <option value="Sonstiges">
+              Sonstiges
+            </option>
+          </select>
+
+
+          {/* NACHRICHT */}
+          <textarea
+            value={nachricht}
+            onChange={(e) => setNachricht(e.target.value)}
+            placeholder="Beschreiben Sie kurz Ihr Projekt oder Anliegen..."
+            required
+            className="
+              p-4
+              min-h-40
+              rounded-xl
+              bg-black/20
+              border border-white/10
+              text-white
+              placeholder:text-gray-500
+              outline-none
+              resize-y
+              transition
+              focus:border-blue-400/50
+              focus:bg-black/30
+            "
+          />
+
+
+          {/* BUTTON */}
+          <button
+            type="submit"
+            disabled={loading}
+            className="
+              mt-2
+              bg-blue-600
+              hover:bg-blue-500
+              disabled:opacity-60
+              disabled:cursor-not-allowed
+              py-4
+              px-6
+              rounded-xl
+              font-medium
+              transition-all duration-300
+              shadow-lg shadow-blue-900/20
+            "
+          >
+            {loading ? "Wird gesendet..." : "Anfrage senden"}
+          </button>
+
+
+          {/* ERFOLG */}
+          {success && (
+            <p
+              className="
+                text-green-400
+                text-sm
+                text-center
+                p-4
+                rounded-xl
+                border border-green-500/20
+                bg-green-500/5
+              "
+            >
+              Vielen Dank! Ihre Anfrage wurde erfolgreich versendet.
+            </p>
+          )}
+
+        </form>
+
+      </div>
 
     </div>
+
   </div>
 </section>
 
