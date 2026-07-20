@@ -9,6 +9,9 @@ import {
   Car,
   ShieldCheck,
   BarChart3,
+  MapPin,
+  Handshake,
+BatteryCharging,
 } from "lucide-react";
 
 export default function Page() {
@@ -381,54 +384,76 @@ export default function Page() {
 </div>
 {/* WARUM WESSEL ELEKTROTECHNIK */}
 <section className="py-20 px-6 border-t border-white/10">
-  <div className="max-w-6xl mx-auto">
+  <div className="grid md:grid-cols-4 gap-6">
 
-    <h2 className="text-3xl mb-4">
-      Warum Wessel Elektrotechnik?
-    </h2>
+  {[
+    {
+      title: "23 Jahre Erfahrung",
+      text: "Langjährige Erfahrung in Elektroinstallation und moderner Gebäudetechnik.",
+      icon: Zap,
+    },
+    {
+      title: "Regional vor Ort",
+      text: "Ihr Ansprechpartner im Münsterland mit kurzen Wegen und persönlichem Kontakt.",
+      icon: MapPin,
+    },
+    {
+      title: "Persönliche Betreuung",
+      text: "Von der ersten Beratung bis zur Fertigstellung haben Sie einen festen Ansprechpartner.",
+      icon: Handshake,
+    },
+    {
+      title: "Moderne Energielösungen",
+      text: "Photovoltaik, Speicher, Wallboxen und intelligentes Energiemanagement aus einer Hand.",
+      icon: BatteryCharging,
+    },
+  ].map((item, i) => {
+    const Icon = item.icon;
 
-    <p className="text-gray-400 mb-12 max-w-2xl">
-      Persönliche Betreuung, langjährige Erfahrung und moderne Lösungen für
-      Elektrotechnik, Photovoltaik und E-Mobilität im Münsterland.
-    </p>
+    return (
+      <div
+        key={i}
+        className="
+          group
+          p-6
+          rounded-2xl
+          border border-white/10
+          bg-gradient-to-br from-white/[0.05] to-white/[0.015]
+          backdrop-blur-sm
+          transition-all duration-300
+          hover:-translate-y-1
+          hover:border-blue-400/40
+          hover:shadow-[0_18px_45px_rgba(0,90,255,0.10)]
+        "
+      >
+        <div
+          className="
+            w-11 h-11
+            mb-5
+            rounded-xl
+            border border-blue-400/20
+            bg-blue-500/10
+            flex items-center justify-center
+            transition-all duration-300
+            group-hover:bg-blue-500/15
+            group-hover:border-blue-400/40
+          "
+        >
+          <Icon className="w-5 h-5 text-blue-400" />
+        </div>
 
-    <div className="grid md:grid-cols-4 gap-6">
+        <h3 className="font-semibold mb-3 tracking-tight">
+          {item.title}
+        </h3>
 
-      <div className="p-6 bg-[#0b1220] rounded-xl border border-white/10">
-        <div className="text-blue-400 text-3xl mb-3">⚡</div>
-        <h3 className="font-semibold mb-2">23 Jahre Erfahrung</h3>
-        <p className="text-sm text-gray-400">
-          Langjährige Erfahrung in Elektroinstallation und moderner Gebäudetechnik.
+        <p className="text-sm text-gray-400 leading-relaxed">
+          {item.text}
         </p>
       </div>
+    );
+  })}
 
-      <div className="p-6 bg-[#0b1220] rounded-xl border border-white/10">
-        <div className="text-blue-400 text-3xl mb-3">📍</div>
-        <h3 className="font-semibold mb-2">Regional vor Ort</h3>
-        <p className="text-sm text-gray-400">
-          Ihr Ansprechpartner im Münsterland mit kurzen Wegen und persönlichem Kontakt.
-        </p>
-      </div>
-
-      <div className="p-6 bg-[#0b1220] rounded-xl border border-white/10">
-        <div className="text-blue-400 text-3xl mb-3">🤝</div>
-        <h3 className="font-semibold mb-2">Persönliche Betreuung</h3>
-        <p className="text-sm text-gray-400">
-          Von der ersten Beratung bis zur Fertigstellung haben Sie einen festen Ansprechpartner.
-        </p>
-      </div>
-
-      <div className="p-6 bg-[#0b1220] rounded-xl border border-white/10">
-        <div className="text-blue-400 text-3xl mb-3">🔋</div>
-        <h3 className="font-semibold mb-2">Moderne Energielösungen</h3>
-        <p className="text-sm text-gray-400">
-          Photovoltaik, Speicher, Wallboxen und intelligentes Energiemanagement aus einer Hand.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
+</div>
 </section>
       {/* KONTAKT */}
 <section id="kontakt" className="py-24 px-6 border-t border-white/10">
