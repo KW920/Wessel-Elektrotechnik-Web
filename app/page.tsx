@@ -30,7 +30,11 @@ export default function Page() {
         <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-5">
 
           <div className="flex items-center gap-4">
-            <img src="/wessel_logo_dark-Photoroom.png"	className="h-14" />
+            <img
+  src="/wessel_logo_neu.svg"
+  alt="Wessel Elektrotechnik"
+  className="h-14 w-auto"
+/>
             
           </div>
 
