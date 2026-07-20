@@ -14,6 +14,8 @@ import {
   BatteryCharging,
   Phone,
   Mail,
+  Menu,
+  X,
 } from "lucide-react";
 
 export default function Page() {
@@ -26,41 +28,174 @@ export default function Page() {
   
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="text-white font-sans bg-transparent">
 
       {/* HEADER */}
-      <header className="fixed top-0 w-full z-50 bg-black/60 backdrop-blur-xl border-b border-white/5">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-5">
+      {/* HEADER */}
+<header className="fixed top-0 w-full z-50 bg-black/70 backdrop-blur-xl border-b border-white/5">
 
-          <div className="flex items-center gap-4">
-            <img
-  src="/logo-night.svg"
-  alt="Wessel Elektrotechnik"
-  className="h-14 w-auto"
-/>
-            
-          </div>
+  <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
-          <nav className="hidden md:flex gap-10 text-sm text-gray-300">
-            <a href="#leistungen">Leistungen</a>
-            <a href="#ablauf">Ablauf</a>
-            <a href="#projekte">Projekte</a>
-            <a href="#kontakt">Kontakt</a>
-          </nav>
-            <a
-              href="tel:+4915110195846"
-              className="hidden lg:block text-sm text-gray-300"
-              >
-             📞 02571 / 123456
-            </a>
-          <a href="#kontakt" className="bg-blue-600 px-6 py-2 rounded-md text-sm">
-            Projekt anfragen
-          </a>
+    {/* LOGO */}
+    <a href="#" className="flex items-center shrink-0">
+      <img
+        src="/logo-night.svg"
+        alt="Wessel Elektrotechnik"
+        className="h-12 md:h-14 w-auto"
+      />
+    </a>
 
-        </div>
-      </header>
+
+    {/* DESKTOP NAVIGATION */}
+    <nav className="hidden md:flex items-center gap-10 text-sm text-gray-300">
+      <a
+        href="#leistungen"
+        className="hover:text-white transition"
+      >
+        Leistungen
+      </a>
+
+      <a
+        href="#ablauf"
+        className="hover:text-white transition"
+      >
+        Ablauf
+      </a>
+
+      <a
+        href="#projekte"
+        className="hover:text-white transition"
+      >
+        Projekte
+      </a>
+
+      <a
+        href="#kontakt"
+        className="hover:text-white transition"
+      >
+        Kontakt
+      </a>
+    </nav>
+
+
+    {/* DESKTOP TELEFON */}
+    <a
+      href="tel:+4915110195846"
+      className="hidden lg:flex items-center gap-2 text-sm text-gray-300 hover:text-white transition"
+    >
+      <Phone className="w-4 h-4 text-pink-500" />
+      02571 / 123456
+    </a>
+
+
+    {/* DESKTOP BUTTON */}
+    <a
+      href="#kontakt"
+      className="
+        hidden md:block
+        bg-blue-600
+        hover:bg-blue-500
+        transition-all duration-300
+        px-6 py-3
+        rounded-lg
+        text-sm font-medium
+        shadow-lg shadow-blue-900/20
+      "
+    >
+      Projekt anfragen
+    </a>
+
+
+    {/* MOBILE MENU BUTTON */}
+    <button
+      onClick={() => setMenuOpen(!menuOpen)}
+      className="
+        md:hidden
+        w-11 h-11
+        flex items-center justify-center
+        rounded-xl
+        border border-white/10
+        bg-white/[0.04]
+        hover:bg-white/[0.08]
+        transition
+      "
+      aria-label="Menü öffnen"
+    >
+      {menuOpen ? (
+        <X className="w-5 h-5 text-white" />
+      ) : (
+        <Menu className="w-5 h-5 text-white" />
+      )}
+    </button>
+
+  </div>
+
+
+  {/* MOBILE MENU */}
+  {menuOpen && (
+    <div className="md:hidden border-t border-white/10 bg-[#05070d]/95 backdrop-blur-xl">
+
+      <nav className="px-6 py-6 flex flex-col gap-4 text-gray-300">
+
+        <a
+          href="#leistungen"
+          onClick={() => setMenuOpen(false)}
+          className="py-2 hover:text-white transition"
+        >
+          Leistungen
+        </a>
+
+        <a
+          href="#ablauf"
+          onClick={() => setMenuOpen(false)}
+          className="py-2 hover:text-white transition"
+        >
+          Ablauf
+        </a>
+
+        <a
+          href="#projekte"
+          onClick={() => setMenuOpen(false)}
+          className="py-2 hover:text-white transition"
+        >
+          Projekte
+        </a>
+
+        <a
+          href="#kontakt"
+          onClick={() => setMenuOpen(false)}
+          className="py-2 hover:text-white transition"
+        >
+          Kontakt
+        </a>
+
+        <a
+          href="#kontakt"
+          onClick={() => setMenuOpen(false)}
+          className="
+            mt-2
+            bg-blue-600
+            hover:bg-blue-500
+            text-white
+            text-center
+            py-3
+            rounded-xl
+            font-medium
+            transition
+          "
+        >
+          Projekt anfragen
+        </a>
+
+      </nav>
+
+    </div>
+  )}
+
+</header>
 
       {/* HERO */}
 <section className="pt-36 pb-24 px-6 relative">
