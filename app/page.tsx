@@ -67,9 +67,10 @@ export default function Page() {
       </p>
 
       <h1 className="text-5xl md:text-[56px] leading-tight font-bold">
-        Elektrotechnik, Photovoltaik &
-        <span className="text-blue-500"> Wallboxen aus einer Hand.</span>
-      </h1>
+  Elektrotechnik, Photovoltaik &
+  <span className="text-blue-400"> Wallboxen</span>
+  <span className="text-white"> aus einer Hand.</span>
+</h1>
 
       <p className="mt-6 text-gray-300 text-lg leading-relaxed">
         Ihr Fachbetrieb für moderne Elektrotechnik im Münsterland –
@@ -87,14 +88,17 @@ export default function Page() {
       <div className="mt-10 flex flex-col sm:flex-row gap-4">
         <a
           href="#kontakt"
-          className="bg-blue-600 hover:bg-blue-700 transition px-7 py-3 rounded-md text-center"
+          className="bg-blue-600 hover:bg-blue-500 transition-all duration-300
+           px-7 py-3 rounded-lg text-center font-medium
+           shadow-lg shadow-blue-900/20"
         >
           Projekt anfragen
         </a>
 
         <a
           href="#leistungen"
-          className="border border-white/20 hover:border-blue-500 transition px-7 py-3 rounded-md text-center"
+          className="border border-white/20 hover:border-blue-400 hover:bg-white/5
+           transition-all duration-300 px-7 py-3 rounded-lg text-center"
         >
           Unsere Leistungen
         </a>
@@ -104,7 +108,8 @@ export default function Page() {
     <img
       src="/TransitHero.png"
       alt="Wessel Elektrotechnik Fahrzeug"
-      className="w-full max-w-xl rounded-3xl shadow-2xl"
+      className="w-full max-w-xl rounded-3xl shadow-2xl border border-white/10 bg-black/20
+           drop-shadow-[0_0_35px_rgba(37,99,235,0.18)]"
     />
   </div>
 </section>
