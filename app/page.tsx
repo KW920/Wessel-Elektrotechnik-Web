@@ -415,88 +415,127 @@ export default function Page() {
   </div>
 </section>
       {/* PROJEKTE / LEISTUNGSBEREICHE */}
-<section id="projekte" className="py-20 px-6">
+<section id="projekte" className="py-24 px-6">
   <div className="max-w-7xl mx-auto">
 
-    <h2 className="text-3xl mb-4">Leistungsbereiche</h2>
+    {/* HEADLINE */}
+    <div className="mb-14">
+      <p className="text-blue-400 text-xs uppercase tracking-[0.2em] mb-4">
+        Unsere Kompetenzen
+      </p>
 
-    <p className="text-gray-400 mb-12 max-w-2xl">
-      Moderne Elektrotechnik aus einer Hand – von der klassischen Installation
-      bis zu Photovoltaik, Wallboxen und intelligentem Energiemanagement.
-    </p>
+      <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-5">
+        Leistungsbereiche
+      </h2>
 
+      <p className="text-gray-400 max-w-3xl text-base md:text-lg leading-relaxed">
+        Moderne Elektrotechnik aus einer Hand – von der klassischen Installation
+        bis zu Photovoltaik, Wallboxen und intelligentem Energiemanagement.
+      </p>
+    </div>
+
+    {/* KARTEN */}
     <div className="grid md:grid-cols-3 gap-6">
 
       {[
         {
           image: "/leistungen/elektroinstallation.webp",
           title: "Elektroinstallation",
-          text: "Saubere Elektroarbeiten für Neubau, Altbau, Modernisierung und Erweiterung."
+          text: "Saubere Elektroarbeiten für Neubau, Altbau, Modernisierung und Erweiterung.",
+          icon: Zap,
         },
         {
           image: "/leistungen/photovoltaik-speicher.webp",
           title: "Photovoltaik & Speicher",
-          text: "Installation und Anschluss moderner Energielösungen für mehr Unabhängigkeit."
+          text: "Installation und Anschluss moderner Energielösungen für mehr Unabhängigkeit.",
+          icon: Sun,
         },
         {
           image: "/leistungen/wallbox-emobilitaet.webp",
           title: "Wallboxen & E-Mobilität",
-          text: "Fachgerechte Installation von Ladelösungen für Zuhause und Gewerbe."
+          text: "Fachgerechte Installation von Ladelösungen für Zuhause und Gewerbe.",
+          icon: Car,
         },
-      ].map((project, i) => (
+      ].map((project, i) => {
+        const Icon = project.icon;
 
-        <div
-          key={i}
-          className="
-            group
-            rounded-2xl
-            overflow-hidden
-            border border-white/10
-            bg-gradient-to-br from-white/[0.05] to-white/[0.015]
-            backdrop-blur-sm
-            transition-all duration-300
-            hover:-translate-y-1
-            hover:border-blue-400/40
-            hover:shadow-[0_18px_45px_rgba(0,90,255,0.12)]
-          "
-        >
+        return (
+          <div
+            key={i}
+            className="
+              group
+              overflow-hidden
+              rounded-2xl
+              border border-white/10
+              bg-gradient-to-b from-white/[0.04] to-white/[0.015]
+              backdrop-blur-sm
+              transition-all duration-300
+              hover:-translate-y-1
+              hover:border-blue-400/40
+              hover:shadow-[0_20px_50px_rgba(0,90,255,0.12)]
+            "
+          >
 
-          {/* BILD */}
-          <div className="overflow-hidden h-64 md:h-72">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="
-                w-full
-                h-full
-                object-cover
-                object-center
-                transition-transform duration-500
-                group-hover:scale-105
-              "
-            />
+            {/* BILDBEREICH */}
+            <div className="relative h-80 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="
+                  w-full
+                  h-full
+                  object-cover
+                  object-center
+                  transition-transform duration-700
+                  group-hover:scale-105
+                "
+              />
+
+              {/* leichter Verlauf ins Karten-Design */}
+              <div className="
+                absolute inset-x-0 bottom-0 h-24
+                bg-gradient-to-t from-[#07111f] to-transparent
+              " />
+            </div>
+
+            {/* INHALT */}
+            <div className="p-7">
+
+              {/* ICON */}
+              <div
+                className="
+                  w-12 h-12
+                  mb-6
+                  rounded-xl
+                  border border-blue-400/30
+                  bg-blue-500/10
+                  flex items-center justify-center
+                  transition-all duration-300
+                  group-hover:bg-blue-500/15
+                  group-hover:border-blue-400/50
+                "
+              >
+                <Icon className="w-6 h-6 text-blue-400" />
+              </div>
+
+              {/* TITEL */}
+              <h3 className="text-2xl text-white font-semibold tracking-tight mb-3">
+                {project.title}
+              </h3>
+
+              {/* BLAUE LINIE */}
+              <div className="w-12 h-[2px] bg-blue-500 mb-5" />
+
+              {/* TEXT */}
+              <p className="text-gray-400 leading-relaxed">
+                {project.text}
+              </p>
+
+            </div>
+
           </div>
-
-          {/* TEXT */}
-          <div className="p-6">
-
-            <p className="text-sm text-blue-400 mb-2">
-              Wessel Elektrotechnik
-            </p>
-
-            <h3 className="text-xl text-white font-semibold mb-3 tracking-tight">
-              {project.title}
-            </h3>
-
-            <p className="text-sm text-gray-400 leading-relaxed">
-              {project.text}
-            </p>
-
-          </div>
-
-        </div>
-
-      ))}
+        );
+      })}
 
     </div>
 
