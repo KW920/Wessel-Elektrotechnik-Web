@@ -42,7 +42,7 @@ export default function Page() {
     {/* LOGO */}
     <a href="#" className="flex items-center shrink-0">
       <img
-        src="/logo-night.svg"
+        src="/Wessel_Elektrotechnik_night.svg"
         alt="Wessel Elektrotechnik"
         className="h-12 md:h-14 w-auto"
       />
@@ -1039,7 +1039,7 @@ export default function Page() {
       <div className="flex flex-col items-center md:items-start gap-4">
 
         <img
-          src="/logo-night.svg"
+          src="/Wessel_Elektrotechnik_night.svg"
           alt="Wessel Elektrotechnik"
           className="h-12 w-auto"
         />
