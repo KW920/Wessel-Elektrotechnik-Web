@@ -46,8 +46,6 @@ html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
 /* Dunkles natives Auswahlmenü mit gut lesbaren Optionen. */
 #kontakt select {
   color-scheme: dark;
-  background-color: #000;
-  color: #f3f4f6;
 }
 #kontakt select option {
   background-color: #000;
