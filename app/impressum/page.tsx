@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ImpressumPage() {
   return (
     <main className="min-h-screen bg-black text-white">
@@ -155,12 +157,12 @@ export default function ImpressumPage() {
 
         <div className="max-w-5xl mx-auto">
 
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 transition px-6 py-3 rounded-xl font-medium shadow-lg shadow-blue-600/20"
           >
             ← Zur Startseite
-          </a>
+          </Link>
 
         </div>
 
@@ -177,19 +179,19 @@ export default function ImpressumPage() {
 
           <div className="flex gap-6">
 
-            <a
+            <Link
               href="/"
               className="hover:text-white transition"
             >
               Startseite
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/datenschutz"
               className="hover:text-white transition"
             >
               Datenschutz
-            </a>
+            </Link>
 
           </div>
 

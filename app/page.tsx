@@ -1,22 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { serviceContent } from "./service-content";
 import {
-  Zap,
-  House,
-  Wrench,
-  Sun,
-  Car,
-  ShieldCheck,
-  BarChart3,
-  MapPin,
-  Handshake,
-  BatteryCharging,
-  Phone,
-  Mail,
-  Menu,
-  X,
+  Search, Wrench, CircuitBoard, Settings2, MapPin, Handshake,
+  Phone, Mail, Menu, X, Check,
 } from "lucide-react";
+
+const serviceIcons = { search: Search, wrench: Wrench, circuit: CircuitBoard, settings: Settings2 };
 
 export default function Page() {
   const [name, setName] = useState("");
@@ -29,11 +22,11 @@ export default function Page() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [error, setError] = useState("");
 
   return (
     <div className="text-white font-sans bg-transparent">
 
-      {/* HEADER */}
       {/* HEADER */}
 <header className="fixed top-0 w-full z-50 bg-black/70 backdrop-blur-xl border-b border-white/5">
 
@@ -41,7 +34,10 @@ export default function Page() {
 
     {/* LOGO */}
     <a href="#" className="flex items-center shrink-0">
-      <img
+      <Image
+        width={1535}
+        height={346}
+        unoptimized
         src="/Wessel_Elektrotechnik_night.svg"
         alt="Wessel Elektrotechnik"
         className="h-12 md:h-14 w-auto"
@@ -66,10 +62,10 @@ export default function Page() {
       </a>
 
       <a
-        href="#projekte"
+        href="#anlagenservice"
         className="hover:text-white transition"
       >
-        Projekte
+        Anlagenservice
       </a>
 
       <a
@@ -87,7 +83,7 @@ export default function Page() {
       className="hidden lg:flex items-center gap-2 text-sm text-gray-300 hover:text-white transition"
     >
       <Phone className="w-4 h-4 text-pink-500" />
-      02571 / 123456
+      0151 / 10195846
     </a>
 
 
@@ -105,7 +101,7 @@ export default function Page() {
         shadow-lg shadow-blue-900/20
       "
     >
-      Projekt anfragen
+      Service anfragen
     </a>
 
 
@@ -122,7 +118,9 @@ export default function Page() {
         hover:bg-white/[0.08]
         transition
       "
-      aria-label="Menü öffnen"
+      aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
+      aria-expanded={menuOpen}
+      aria-controls="mobile-navigation"
     >
       {menuOpen ? (
         <X className="w-5 h-5 text-white" />
@@ -138,7 +136,7 @@ export default function Page() {
   {menuOpen && (
     <div className="md:hidden border-t border-white/10 bg-[#05070d]/95 backdrop-blur-xl">
 
-      <nav className="px-6 py-6 flex flex-col gap-4 text-gray-300">
+      <nav id="mobile-navigation" className="px-6 py-6 flex flex-col gap-4 text-gray-300">
 
         <a
           href="#leistungen"
@@ -157,11 +155,11 @@ export default function Page() {
         </a>
 
         <a
-          href="#projekte"
+          href="#anlagenservice"
           onClick={() => setMenuOpen(false)}
           className="py-2 hover:text-white transition"
         >
-          Projekte
+          Anlagenservice
         </a>
 
         <a
@@ -187,7 +185,7 @@ export default function Page() {
             transition
           "
         >
-          Projekt anfragen
+          Service anfragen
         </a>
 
       </nav>
@@ -203,26 +201,23 @@ export default function Page() {
 
     <div>
       <p className="text-blue-400 text-xs mb-5 uppercase tracking-wider">
-        ELEKTROTECHNIK • FACHBETRIEB AUS GREVEN
+        ANLAGENSERVICE • GREVEN
       </p>
 
-      <h1 className="text-[42px] sm:text-5xl md:text-[56px] leading-[1.12] font-bold tracking-tight">
-  Elektrotechnik, Photovoltaik &
-  <span className="text-blue-400"> Wallboxen</span>
-  <span className="text-white"> aus einer Hand.</span>
+      <h1 className="text-[30px] min-[390px]:text-[34px] sm:text-5xl md:text-[30px] lg:text-[42px] xl:text-[50px] leading-[1.12] font-bold tracking-tight hyphens-auto break-words">
+  Service für
+  <span className="block text-blue-400">TEWE &amp; TELL</span>
+  <span className="block text-white">Fütterungsanlagen.</span>
 </h1>
 
       <p className="mt-6 text-gray-300 text-lg leading-relaxed">
-        Ihr Fachbetrieb für moderne Elektrotechnik im Münsterland –
-        mit 23 Jahren Berufserfahrung in Elektroinstallation,
-        Photovoltaik, E-Mobilität und intelligenter Gebäudetechnik.
+        Fehlersuche, Reparatur und Instandhaltung an bestehenden Anlagen.
+        Als eigenständiges Unternehmen bin ich Ihr direkter Ansprechpartner –
+        von der Anfrage bis zur Abrechnung.
       </p>
 
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-200">
-        <div>✓ 23 Jahre Berufserfahrung</div>
-        <div>✓ Eingetragener Fachbetrieb</div>
-        <div>✓ Regional im Münsterland</div>
-        <div>✓ Persönlicher Ansprechpartner</div>
+        {serviceContent.benefits.map((benefit) => <div key={benefit}>✓ {benefit}</div>)}
       </div>
 
       <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -232,7 +227,7 @@ export default function Page() {
            px-7 py-3 rounded-lg text-center font-medium
            shadow-lg shadow-blue-900/20"
         >
-          Projekt anfragen
+          Service anfragen
         </a>
 
         <a
@@ -245,12 +240,23 @@ export default function Page() {
       </div>
     </div>
 
-    <img
-      src="/TransitHero.png"
-      alt="Wessel Elektrotechnik Fahrzeug"
-      className="hidden md:block w-full max-w-xl rounded-3xl shadow-2xl border border-white/10 bg-black/20
-           drop-shadow-[0_0_35px_rgba(37,99,235,0.18)]"
-    />
+    <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/10 to-black/30 p-7 md:p-10 shadow-2xl">
+      <div className="flex items-center justify-between gap-4 mb-10">
+        <p className="text-blue-400 text-xs uppercase tracking-[0.2em]">Bestehende Anlagen</p>
+        <CircuitBoard className="w-8 h-8 text-blue-400" aria-hidden="true" />
+      </div>
+      <p className="text-3xl md:text-4xl font-semibold tracking-tight">Technik verstehen.<br />Störungen beheben.</p>
+      <div className="mt-8 space-y-0">
+        {serviceContent.services.map((service, index) => (
+          <div key={service.id} className="flex items-center gap-4 border-t border-white/10 py-4">
+            <span className="text-xs text-blue-400 font-mono">0{index + 1}</span>
+            <span className="text-sm text-gray-200">{service.shortTitle}</span>
+            <Check className="ml-auto h-4 w-4 text-blue-400 shrink-0" aria-hidden="true" />
+          </div>
+        ))}
+      </div>
+      <p className="mt-6 text-sm text-gray-400">TEWE- &amp; TELL-Fütterungsanlagen</p>
+    </div>
   </div>
 </section>
       {/* LEISTUNGEN */}
@@ -259,45 +265,14 @@ export default function Page() {
 
     <h2 className="text-3xl mb-12">Unsere Leistungen</h2>
 
-    <div className="grid md:grid-cols-3 gap-6">
+    <div className="grid sm:grid-cols-2 gap-6">
 
-      {[
-  {
-    title: "Elektroinstallation",
-    text: "Elektroinstallationen für Neu- und Altbauten, Modernisierungen sowie Erweiterungen bestehender Anlagen.",
-    icon: Zap,
-  },
-  {
-    title: "Photovoltaik",
-    text: "Planung, Installation und Anschluss moderner Photovoltaikanlagen für maximale Energieunabhängigkeit.",
-    icon: Sun,
-  },
-  {
-    title: "E-Mobilität",
-    text: "Wallboxen und intelligente Ladelösungen für private und gewerbliche Elektrofahrzeuge.",
-    icon: Car,
-  },
-  {
-    title: "Energiemanagement",
-    text: "Intelligente Steuerung von Photovoltaik, Speicher, Wallbox und Hausverbrauch für maximale Effizienz.",
-    icon: BarChart3,
-  },
-  {
-    title: "Smart Home",
-    text: "Moderne Gebäudeautomation für Licht, Heizung, Beschattung und Energiemanagement.",
-    icon: House,
-  },
-  {
-    title: "Kundendienst & Service",
-    text: "Schnelle Hilfe bei Störungen, Reparaturen, Wartungen und elektrischen Prüfungen.",
-    icon: Wrench,
-  },
-].map((item, i) => {
-        const Icon = item.icon;
+      {serviceContent.services.map((item) => {
+        const Icon = serviceIcons[item.icon];
 
         return (
           <div
-            key={i}
+            key={item.id}
             className="
   group
   p-6
@@ -346,31 +321,15 @@ export default function Page() {
 <section id="ablauf" className="py-20 px-6 border-t border-white/10">
   <div className="max-w-6xl mx-auto">
 
-    <h2 className="text-3xl mb-4">So läuft Ihr Projekt ab</h2>
+    <h2 className="text-3xl mb-4">So läuft Ihr Serviceauftrag ab</h2>
 
     <p className="text-gray-400 mb-12 max-w-2xl">
-      Transparent, persönlich und zuverlässig – von der ersten Anfrage bis zur fertigen Umsetzung.
+      Direkter Kontakt, klare Abstimmung und eine Rechnung von Wessel Elektrotechnik.
     </p>
 
     <div className="grid md:grid-cols-3 gap-8 text-gray-400">
 
-      {[
-        [
-          "01",
-          "Unverbindliche Anfrage",
-          "Kontaktieren Sie uns telefonisch oder über das Kontaktformular für eine erste Beratung."
-        ],
-        [
-          "02",
-          "Individuelle Umsetzung",
-          "Wir planen und realisieren Ihr Projekt zuverlässig, sauber und termingerecht."
-        ],
-        [
-          "03",
-          "Langfristiger Service",
-          "Auch nach der Fertigstellung bleiben wir Ihr Ansprechpartner für Wartung, Service und Erweiterungen."
-        ]
-      ].map((step, i) => (
+      {serviceContent.steps.map((step, i) => (
         <div
           key={i}
           className="
@@ -414,207 +373,55 @@ export default function Page() {
 
   </div>
 </section>
-      {/* PROJEKTE / LEISTUNGSBEREICHE */}
-<section id="projekte" className="py-24 px-6">
+      <section id="anlagenservice" className="py-24 px-6">
   <div className="max-w-7xl mx-auto">
-
-    {/* HEADLINE */}
-    <div className="mb-14">
-      <p className="text-blue-400 text-xs uppercase tracking-[0.2em] mb-4">
-        Unsere Kompetenzen
-      </p>
-
-      <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-5">
-        Leistungsbereiche
-      </h2>
-
+    <div className="mb-12">
+      <p className="text-blue-400 text-xs uppercase tracking-[0.2em] mb-4">Anlagenservice</p>
+      <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-5">Ein direkter Ansprechpartner.<br />Für Ihre bestehende Anlage.</h2>
       <p className="text-gray-400 max-w-3xl text-base md:text-lg leading-relaxed">
-        Moderne Elektrotechnik aus einer Hand – von der klassischen Installation
-        bis zu Photovoltaik, Wallboxen und intelligentem Energiemanagement.
+        Mein Angebot richtet sich an Betreiber bestehender TEWE- und TELL-Fütterungsanlagen.
+        Im Mittelpunkt stehen die Fehlersuche, die Instandhaltung und die Wiederinbetriebnahme nach einer Reparatur.
       </p>
     </div>
-
-    {/* KARTEN */}
-    <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-      {[
-        {
-          image: "/leistungen/elektroinstallation.webp",
-          title: "Elektroinstallation",
-          text: "Saubere Elektroarbeiten für Neubau, Altbau, Modernisierung und Erweiterung.",
-          icon: Zap,
-        },
-        {
-          image: "/leistungen/photovoltaik-speicher.webp",
-          title: "Photovoltaik & Speicher",
-          text: "Installation und Anschluss moderner Energielösungen für mehr Unabhängigkeit.",
-          icon: Sun,
-        },
-        {
-          image: "/leistungen/wallbox-emobilitaet.webp",
-          title: "Wallboxen & E-Mobilität",
-          text: "Fachgerechte Installation von Ladelösungen für Zuhause und Gewerbe.",
-          icon: Car,
-        },
-      ].map((project, i) => {
-        const Icon = project.icon;
-
-        return (
-          <div
-            key={i}
-            className="
-              group
-              overflow-hidden
-              rounded-2xl
-              border border-white/10
-              bg-gradient-to-b from-white/[0.04] to-white/[0.015]
-              backdrop-blur-sm
-              transition-all duration-300
-              hover:-translate-y-1
-              hover:border-blue-400/40
-              hover:shadow-[0_20px_50px_rgba(0,90,255,0.12)]
-            "
-          >
-
-            {/* BILDBEREICH IM HOCHFORMAT */}
-            <div className="relative aspect-[4/5] overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="
-                  w-full
-                  h-full
-                  object-cover
-                  object-center
-                  transition-transform duration-700
-                  group-hover:scale-105
-                "
-              />
-
-              {/* WEICHER ÜBERGANG ZUM TEXTBEREICH */}
-              <div
-                className="
-                  absolute
-                  inset-x-0
-                  bottom-0
-                  h-28
-                  bg-gradient-to-t
-                  from-[#07111f]
-                  to-transparent
-                "
-              />
-            </div>
-
-            {/* INHALT */}
-            <div className="p-7">
-
-              {/* ICON */}
-              <div
-                className="
-                  w-12 h-12
-                  mb-6
-                  rounded-xl
-                  border border-blue-400/30
-                  bg-blue-500/10
-                  flex items-center justify-center
-                  transition-all duration-300
-                  group-hover:bg-blue-500/15
-                  group-hover:border-blue-400/50
-                "
-              >
-                <Icon className="w-6 h-6 text-blue-400" />
-              </div>
-
-              {/* TITEL */}
-              <h3 className="text-2xl text-white font-semibold tracking-tight mb-3">
-                {project.title}
-              </h3>
-
-              {/* BLAUE LINIE */}
-              <div className="w-12 h-[2px] bg-blue-500 mb-5" />
-
-              {/* TEXT */}
-              <p className="text-gray-400 leading-relaxed">
-                {project.text}
-              </p>
-
-            </div>
-
-          </div>
-        );
-      })}
-
+    <div className="grid md:grid-cols-3 gap-8">
+      {serviceContent.focus.map((item) => (
+        <div key={item.title} className="p-7 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.015] backdrop-blur-sm">
+          <CircuitBoard className="w-8 h-8 text-blue-400 mb-6" aria-hidden="true" />
+          <h3 className="text-2xl font-semibold mb-4">{item.title}</h3>
+          <div className="w-12 h-[2px] bg-blue-500 mb-5" />
+          <p className="text-gray-400 leading-relaxed">{item.text}</p>
+        </div>
+      ))}
     </div>
-
+    <p className="mt-8 text-sm text-gray-400 max-w-3xl leading-relaxed">
+      Ich arbeite als eigenständiges Unternehmen. Auftrag und Abrechnung erfolgen direkt zwischen Ihnen und Wessel Elektrotechnik.
+    </p>
   </div>
 </section>
-
-{/* LIGHTBOX */}
-<div
-  id="lightbox"
-  className="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-6"
-  onClick={() => {
-  const lightbox = document.getElementById("lightbox");
-
-  if (lightbox) {
-    lightbox.classList.add("hidden");
-  }
-}}
->
-
-  <div className="relative max-w-6xl w-full flex flex-col items-center">
-
-    <img
-      id="lightbox-image"
-      className="max-w-full max-h-[85vh] rounded-2xl shadow-2xl"
-    />
-
-    <p
-      id="lightbox-title"
-      className="mt-6 text-white text-lg"
-    ></p>
-
-    {/* CLOSE BUTTON */}
-    <button
-      className="absolute -top-4 right-0 text-white text-5xl"
-      onClick={() => {
-  const lightbox = document.getElementById("lightbox");
-
-  if (lightbox) {
-    lightbox.classList.add("hidden");
-  }
-}}
-    >
-      ×
-    </button>
-
-  </div>
-
-</div>
 {/* WARUM WESSEL ELEKTROTECHNIK */}
 <section className="py-20 px-6 border-t border-white/10">
   <div className="grid md:grid-cols-4 gap-6">
 
   {[
     {
-      title: "23 Jahre Erfahrung",
-      text: "Langjährige Erfahrung in Elektroinstallation und moderner Gebäudetechnik.",
-      icon: Zap,
+      title: "Bestehende Anlagen",
+      text: "Service mit Fokus auf TEWE- und TELL-Fütterungsanlagen.",
+      icon: CircuitBoard,
     },
     {
       title: "Regional vor Ort",
-      text: "Ihr Ansprechpartner im Münsterland mit kurzen Wegen und persönlichem Kontakt.",
+      text: "Ihr Ansprechpartner aus Greven. Den Einsatzort und die Anfahrt stimmen wir persönlich ab.",
       icon: MapPin,
     },
     {
       title: "Persönliche Betreuung",
-      text: "Von der ersten Beratung bis zur Fertigstellung haben Sie einen festen Ansprechpartner.",
+      text: "Von der ersten Anfrage bis zum Abschluss Ihres Serviceauftrags haben Sie einen festen Ansprechpartner.",
       icon: Handshake,
     },
     {
-      title: "Moderne Energielösungen",
-      text: "Photovoltaik, Speicher, Wallboxen und intelligentes Energiemanagement aus einer Hand.",
-      icon: BatteryCharging,
+      title: "Direkte Abrechnung",
+      text: "Sie beauftragen Wessel Elektrotechnik und erhalten Ihre Rechnung direkt von mir.",
+      icon: Wrench,
     },
   ].map((item, i) => {
     const Icon = item.icon;
@@ -671,7 +478,7 @@ export default function Page() {
 >
   <div className="max-w-6xl mx-auto">
 
-    <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start">
+    <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start">
 
       {/* LINKE SEITE */}
       <div className="lg:sticky lg:top-32">
@@ -681,13 +488,13 @@ export default function Page() {
         </p>
 
         <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-5">
-          Projekt anfragen
+          Service anfragen
         </h2>
 
         <p className="text-gray-400 leading-relaxed max-w-md">
-          Sie planen ein Projekt rund um Elektrotechnik, Photovoltaik,
-          Wallboxen oder Smart Home? Beschreiben Sie mir kurz Ihr Vorhaben –
-          ich melde mich persönlich bei Ihnen zurück.
+          Sie benötigen Unterstützung an Ihrer bestehenden TEWE- oder TELL-Fütterungsanlage?
+          Nennen Sie mir den Anlagentyp, Ihren Standort und das Anliegen.
+          Ich melde mich persönlich zur weiteren Abstimmung.
         </p>
 
         <div className="mt-10 flex flex-col gap-4">
@@ -787,34 +594,23 @@ export default function Page() {
           onSubmit={async (e) => {
             e.preventDefault();
 
+            if (loading) return;
             setLoading(true);
-
-            const response = await fetch("/api/contact", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                name,
-                telefon,
-                email,
-                ort,
-                anliegen,
-                nachricht,
-              }),
-            });
-
-            setLoading(false);
-
-            if (response.ok) {
+            setSuccess(false);
+            setError("");
+            try {
+              const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, telefon, email, ort, anliegen, nachricht }),
+              });
+              if (!response.ok) throw new Error("Versand fehlgeschlagen");
               setSuccess(true);
-
-              setName("");
-              setTelefon("");
-              setEmail("");
-              setOrt("");
-              setAnliegen("");
-              setNachricht("");
+              setName(""); setTelefon(""); setEmail(""); setOrt(""); setAnliegen(""); setNachricht("");
+            } catch {
+              setError("Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie mich telefonisch.");
+            } finally {
+              setLoading(false);
             }
           }}
         >
@@ -823,8 +619,10 @@ export default function Page() {
           <div className="grid md:grid-cols-2 gap-4">
 
             <input
+              aria-label="Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              autoComplete="name"
               placeholder="Name"
               required
               className="
@@ -842,8 +640,11 @@ export default function Page() {
             />
 
             <input
+              aria-label="Telefon"
               value={telefon}
               onChange={(e) => setTelefon(e.target.value)}
+              type="tel"
+              autoComplete="tel"
               placeholder="Telefon"
               required
               className="
@@ -867,6 +668,7 @@ export default function Page() {
           <div className="grid md:grid-cols-2 gap-4">
 
             <input
+              aria-label="E-Mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
@@ -887,6 +689,7 @@ export default function Page() {
             />
 
             <input
+              aria-label="Ort / Einsatzort"
               value={ort}
               onChange={(e) => setOrt(e.target.value)}
               placeholder="Ort / Einsatzort"
@@ -909,7 +712,8 @@ export default function Page() {
 
           {/* ANLIEGEN */}
           <select
-            value={anliegen}
+            aria-label="Anliegen"
+              value={anliegen}
             onChange={(e) => setAnliegen(e.target.value)}
             required
             className="
@@ -928,41 +732,19 @@ export default function Page() {
               Anliegen auswählen
             </option>
 
-            <option value="Elektroinstallation">
-              Elektroinstallation
-            </option>
-
-            <option value="Photovoltaik">
-              Photovoltaik
-            </option>
-
-            <option value="Wallbox">
-              Wallbox
-            </option>
-
-            <option value="Smart Home">
-              Smart Home
-            </option>
-
-            <option value="Energiemanagement">
-              Energiemanagement
-            </option>
-
-            <option value="Kundendienst">
-              Kundendienst
-            </option>
-
-            <option value="Sonstiges">
-              Sonstiges
-            </option>
+            {serviceContent.services.map((service) => (
+              <option key={service.id} value={service.title}>{service.title}</option>
+            ))}
+            <option value="Sonstige Anfrage zur bestehenden Anlage">Sonstige Anfrage zur bestehenden Anlage</option>
           </select>
 
 
           {/* NACHRICHT */}
           <textarea
-            value={nachricht}
+            aria-label="Anlagentyp und Anliegen"
+              value={nachricht}
             onChange={(e) => setNachricht(e.target.value)}
-            placeholder="Beschreiben Sie kurz Ihr Projekt oder Anliegen..."
+            placeholder="Anlagentyp, Fehlerbild und Anliegen – bitte keine Passwörter oder Zugangsdaten angeben."
             required
             className="
               p-4
@@ -981,6 +763,10 @@ export default function Page() {
           />
 
 
+          <p className="text-xs text-gray-400 leading-relaxed">
+            Ihre Angaben verwende ich zur Bearbeitung Ihrer Anfrage. Weitere Informationen finden Sie in der <Link href="/datenschutz" className="text-blue-400 underline underline-offset-4">Datenschutzerklärung</Link>.
+          </p>
+          {error && <p role="alert" className="text-red-300 text-sm p-4 rounded-xl border border-red-400/20 bg-red-400/5">{error}</p>}
           {/* BUTTON */}
           <button
             type="submit"
@@ -1006,6 +792,7 @@ export default function Page() {
           {/* ERFOLG */}
           {success && (
             <p
+              role="status"
               className="
                 text-green-400
                 text-sm
@@ -1038,15 +825,18 @@ export default function Page() {
       {/* LOGO + BESCHREIBUNG */}
       <div className="flex flex-col items-center md:items-start gap-4">
 
-        <img
+        <Image
+          width={1535}
+          height={346}
+          unoptimized
           src="/Wessel_Elektrotechnik_night.svg"
           alt="Wessel Elektrotechnik"
           className="h-12 w-auto"
         />
 
         <p className="text-sm text-gray-500 text-center md:text-left max-w-md leading-relaxed">
-          Ihr Fachbetrieb aus Greven für Elektrotechnik, Photovoltaik,
-          Wallboxen und moderne Gebäudetechnik im Münsterland.
+          Ihr eigenständiger Ansprechpartner aus Greven für Service,
+          Reparatur und Instandhaltung bestehender TEWE- und TELL-Fütterungsanlagen.
         </p>
 
       </div>
@@ -1057,19 +847,19 @@ export default function Page() {
 
         <div className="flex gap-6 text-sm text-gray-400">
 
-          <a
+          <Link
             href="/impressum"
             className="hover:text-blue-400 transition-colors"
           >
             Impressum
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="/datenschutz"
             className="hover:text-blue-400 transition-colors"
           >
             Datenschutz
-          </a>
+          </Link>
 
         </div>
 

@@ -1,21 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
+const geistSans = localFont({
+  src: "./fonts/geist-latin.woff2",
+  weight: "100 900",
+  display: "swap",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "./fonts/geist-mono-latin.woff2",
+  weight: "100 900",
+  display: "swap",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Wessel Elektrotechnik | Meisterbetrieb aus Greven",
+export const metadata: Metadata = {
+  title: "Wessel Elektrotechnik | Service für TEWE- & TELL-Fütterungsanlagen",
   description:
-    "Ihr Ansprechpartner für Elektroinstallation, Smart Home, Photovoltaik, E-Mobilität und E-Check in Greven und Umgebung.",
+    "Eigenständiger Anlagenservice aus Greven: Fehlersuche, Wartung, Komponententausch und Wiederinbetriebnahme nach Reparatur an bestehenden TEWE- und TELL-Fütterungsanlagen.",
 };
 
 export default function RootLayout({
@@ -25,15 +29,15 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="de"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="relative min-h-screen overflow-x-hidden">
-  <img src="/bg.jpg" className="bg-image" />
 
-  <main className="relative z-10">
+
+  <div className="relative z-10">
     {children}
-  </main>
+  </div>
 </body>
     </html>
   );

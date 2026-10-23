@@ -26,3 +26,19 @@ body {
 
   z-index: -1; /* 🔥 WICHTIG */
 }
+/* Gleiche Farbwelt, ohne Smart-Home-Bild im Anlagenservice-Auftritt. */
+body {
+  background-image: radial-gradient(ellipse at 90% 10%, rgba(37, 99, 235, 0.10), transparent 55%);
+}
+html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+:focus-visible { outline: 2px solid #60a5fa; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+/* Formulare und Kontaktdaten bleiben auch auf schmalen Displays im Raster. */
+#kontakt .grid { min-width: 0; }
+#kontakt .grid > * { min-width: 0; }
+#kontakt input, #kontakt select, #kontakt textarea { min-width: 0; width: 100%; }
+#kontakt a > div:first-child { flex-shrink: 0; }
+#kontakt a > div:last-child { min-width: 0; overflow-wrap: anywhere; }
