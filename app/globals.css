@@ -42,3 +42,14 @@ html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
 #kontakt input, #kontakt select, #kontakt textarea { min-width: 0; width: 100%; }
 #kontakt a > div:first-child { flex-shrink: 0; }
 #kontakt a > div:last-child { min-width: 0; overflow-wrap: anywhere; }
+
+/* Dunkles natives Auswahlmenü mit gut lesbaren Optionen. */
+#kontakt select {
+  color-scheme: dark;
+  background-color: #000;
+  color: #f3f4f6;
+}
+#kontakt select option {
+  background-color: #000;
+  color: #f3f4f6;
+}
